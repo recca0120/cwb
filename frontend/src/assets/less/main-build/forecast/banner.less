@@ -1,0 +1,183 @@
+// banner
+
+.sweet-alert {
+  p {
+    max-height: 350px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: #fff;
+      border: none;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: @base-lt-blue;
+      padding: 5px;
+      margin-left: 5px;
+      .border-radius(10px);
+    }
+  }
+  button{
+    background-color: @base-blue;
+    &:hover{
+      background-color: lighten(@base-blue,5%);
+    }
+  }
+}
+.banner_wrap {
+  position: relative;
+  width: 100%;
+  // overflow: hidden;
+
+  .marquee {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    padding: 10px 0;
+    height: 50px;
+
+    &.is_open {
+      height: inherit;
+    }
+
+    span {
+      .flexbox;
+      .align-item(center,center);
+      position: relative;
+      font-weight: bold;
+      height: 50px;
+      padding: 15px;
+      color: #fff;
+
+      &.is_hidden {
+        display: none;
+      }
+
+      a {
+        padding: 0 10px;
+        font-size: @xs-font-size;
+        color: #fff;
+        cursor: pointer;
+        text-decoration: underline;
+        letter-spacing: 1px;
+
+        &:hover {
+          color: #ddd;
+        }
+      }
+
+      .marquee-sun {
+        background: url("../../assets/img/icons/weathers/marquee_sun.svg") no-repeat;
+        background-size: contain;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        .transform-display(translateY(-50%));
+      }
+    }
+
+    .more_text {
+      pointer-events: none;
+      position: relative;
+      padding: 15px 30px;
+      background: rgba(255,255,255,.8);
+      width: 650px;
+      height: 200px;
+      overflow: scroll;
+      font-size: @xs-font-size;
+      color: #555;
+      font-weight: bold;
+      letter-spacing: 1px;
+      opacity: 0;
+      .transform-display(translateY(200px));
+      .transition-animate(all .2s ease-in-out);
+
+      a {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: @xs-font-size + .1;
+
+        &:hover {
+          color: #222;
+        }
+      }
+
+      &.is_more {
+        pointer-events: auto;
+        opacity: 1;
+        .transform-display(translateY(0));
+        .transition-animate(all .5s ease-in-out);
+      }
+    }
+  }
+
+  .cube {
+    background: transparent;
+
+    ul {
+      margin-bottom: 0;
+
+      li {
+        background: @base-blue;
+        /*&:hover {
+                    background: #2785c4;
+                }*/
+        i {
+          color: #fff;
+        }
+        font-weight: 300;
+        letter-spacing: 2px;
+        font-size: @xs-font-size - .1;
+        color: rgba(255,255,255,.85);
+
+        span {
+          color: rgba(255,255,255,.85);
+        }
+      }
+    }
+  }
+
+  .warning_cube {
+    background: -moz-linear-gradient(left, rgba(255,26,0,1) 0%, rgba(255,26,0,0) 100%);
+    background: -webkit-linear-gradient(left, rgba(255,26,0,1) 0%,rgba(255,26,0,0) 100%);
+    background: linear-gradient(to right, rgba(255,26,0,1) 0%,rgba(255,26,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#ff1a00', endColorstr='#00ff1a00',GradientType=1 );
+
+    ul {
+      .flexbox;
+      .flex(row,nowrap);
+      width: 60%;
+
+      li {
+        -ms-flex: 0 1 auto;
+        background: transparent;
+        padding: 0;
+        width: 20%;
+
+        a {
+          display: block;
+          width: 100%;
+          padding: 15px;
+
+          &:hover {
+            background: rgba(255,255,255,.3);
+            text-decoration: none;
+          }
+        }
+
+        i {
+          color: #fff;
+          font-size: @md-font-size;
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

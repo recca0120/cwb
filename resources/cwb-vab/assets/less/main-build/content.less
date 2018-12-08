@@ -1,0 +1,2819 @@
+a {
+    color: @base-sea;
+
+    &:hover {
+        text-decoration: none;
+        color: @base-sea;
+    }
+}
+
+.main-content {
+    padding: 20px 15px;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.bg-blue {
+    background: #bfe9ff;
+}
+
+.border-blue {
+    border: 2px solid @base-blue;
+}
+
+.content-border-gray {
+    border: 1px solid @base-gray;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.color-dark {
+    color: #555 !important;
+}
+
+.border-gray {
+    border: 1px solid @base-gray;
+}
+
+.flex-row {
+    &-wrap {
+        .flexbox;
+        .flex(row, wrap);
+    }
+
+    &-nowrap {
+        .flexbox;
+        .flex(row, nowrap);
+    }
+}
+
+.align-start {
+    .align-item(flex-start, start);
+}
+
+// ---------------
+// cwb_observe_radar.html             -------  雷達回波
+// cwb_observe_satellite_SatW.html    -------  衛星雲圖 全景
+.trigger-img {
+    margin: 5px; //標題
+
+    h3 {
+        background: @base-blue;
+        .heading-title(@xs-font-size, 1px, #fff); //15px
+        margin: 0;
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    &:hover h3 {
+        background: @base-dk-blue;
+    }
+}
+
+// --------------- highcharts
+.highcharts-title {
+    fill: @base-blue  !important;
+    color: @base-blue  !important;
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+// ---------------end highcharts
+.icon_block {
+    .flexbox;
+    .flex(row, nowrap);
+    .align-item(center, center);
+    background: @base-lt-blue;
+
+    .block_info {
+        -ms-flex: 0 1 auto;
+
+        &.title-icon {
+            text-align: center;
+            padding: 40px;
+        }
+
+        &:first-child {
+            flex-grow: 1;
+
+            i {
+                color: #fff;
+                font-size: @md-font-size + 2.7;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: #fff;
+            }
+        }
+
+        &:last-child {
+            flex-grow: 2;
+            background: @base-ltr-blue;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border-bottom: 1px solid #fff;
+            .flexbox;
+            .flex(row, nowrap);
+
+            li {
+                padding: 10px;
+                position: relative;
+                width: 100%;
+                -ms-flex: 0 1 auto;
+
+                &:first-child:before {
+                    content: ":";
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+// --------------- 分享、列印btn
+.sp {
+    float: right;
+
+    &:hover .icon-bg-gray {
+        background: @base-dk-gray;
+    }
+
+    &>ul {
+        margin-bottom: 0;
+
+        &>li {
+            position: relative;
+        }
+    }
+
+    .icon-custom {
+        color: #fff;
+        border: none;
+        font-size: 2rem;
+        position: relative;
+
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .transform-display(translateX(-50%) translateY(-50%));
+        }
+    }
+
+    i.icon-sm {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon-bg-gray {
+        background: @base-gray;
+    }
+
+    .fab {
+        height: 56px;
+        width: 56px;
+        border-radius: 50%;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .share-btn {
+        .flexbox;
+        .align-item(center, center);
+
+        a {
+            z-index: 99;
+        }
+
+        &.active {
+            &>ul {
+                pointer-events: auto;
+
+                .fab {
+                    -webkit-animation: 0.48s up forwards;
+                    animation: 0.48s up forwards;
+                }
+
+                .fab:nth-child(1) {
+                    -webkit-animation-delay: 0.39s;
+                    animation-delay: 0.39s;
+                }
+
+                .fab:nth-child(2) {
+                    -webkit-animation-delay: 0.2s;
+                    animation-delay: 0.2s;
+                }
+            }
+        }
+
+        &>ul {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            padding-top: 60px;
+            .transform-display(translateX(-50%));
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            width: 56px;
+            height: 230px;
+            z-index: 10;
+            pointer-events: none;
+
+            &.pos-right {
+                padding-top: 0;
+                position: static;
+                height: 190px;
+                left: inherit;
+                .transform-display(translateX(30%) translateY(0));
+            }
+
+            .fab {
+                opacity: 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); // -webkit-transition: 0.3s;
+                // transition: 0.3s;
+                // -webkit-animation: 0.3s down forwards;
+                // animation: 0.3s down forwards;
+                opacity: 0;
+                will-change: animation;
+                position: absolute;
+                -webkit-animation: none;
+                animation: none;
+                overflow: hidden;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+
+                    i {
+                        font-size: @md-font-size;
+                        color: #fff;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        .transform-display(translateX(-50%) translateY(-50%));
+                    }
+                }
+            }
+
+            .fab:nth-child(1) {
+                bottom: 132px;
+
+                a {
+                    background: #1DA1F2;
+                }
+            }
+
+            .fab:nth-child(2) {
+                bottom: 66px;
+
+                a {
+                    background: #46629E;
+                }
+            }
+
+            .fab:nth-child(3) {
+                bottom: 0;
+
+                a {
+                    background: #DB4437;
+                }
+            }
+        }
+    }
+
+    @-webkit-keyframes up {
+        50% {
+            -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes up {
+        50% {
+            -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+
+    @-webkit-keyframes down {
+        0% {
+            opacity: 1;
+            -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+        }
+
+        100% {
+            opacity: 0;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            top: 0;
+        }
+    }
+
+    @keyframes down {
+        0% {
+            opacity: 1;
+            -webkit-transform: translateY(20%);
+            transform: translateY(20%);
+        }
+
+        100% {
+            opacity: 0;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+            top: 0;
+        }
+    }
+}
+
+// ---------------END 分享、列印btn
+// --------------- 地震資料
+.sp {
+    &>ul {
+        .flexbox;
+        .align-item(center, center);
+
+        &>li {
+            width: 100%;
+            padding: 0 10px;
+            text-align: center;
+
+            &>a {
+                display: block;
+                .transition-animate(all .3s ease-in-out);
+
+                &:hover {
+                    opacity: .6;
+                }
+
+                >i {
+                    font-size: @md-font-size;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &.padding-3 {
+        ul>li {
+            padding: 0 3px;
+        }
+    }
+}
+
+.quake_info {
+    margin: 35px 0;
+
+    li {
+        color: #555;
+        padding-bottom: 10px;
+        padding-left: 20px;
+    }
+
+    i {
+        color: @base-gray;
+        padding-right: 10px;
+        position: absolute;
+        left: 16px;
+        margin-top: 4px;
+    }
+
+    span {
+        display: block;
+        padding-left: 3em;
+    }
+}
+
+.list_info_block.vision_1 {
+    .list_row {
+        padding: 15px 0;
+        border-bottom: 1px solid @base-ltr-blue;
+        position: relative;
+        display: block;
+
+        &:first-child {
+            border-top: 1px solid @base-ltr-blue;
+        }
+
+        &:hover {
+            background-color: lighten(@base-ltr-blue , 3%);
+
+            .sp {
+                z-index: 1;
+
+                .share-btn {
+                    pointer-events: auto;
+                }
+            }
+        }
+
+        .sp {
+            z-index: 0;
+            .transform-display(translateY(-50%));
+            position: absolute;
+            right: 50px;
+            top: 50%;
+
+            .share-btn {
+                pointer-events: none;
+            }
+        }
+
+        .info_detail {
+            .flexbox;
+            list-style: none;
+            margin-bottom: 0;
+            padding-left: 0;
+
+            &>li {
+                width: 100%;
+                -ms-flex: 0 1 auto;
+                color: #555;
+                position: relative;
+                letter-spacing: 1px;
+                padding-bottom: 15px;
+
+                &>span {
+                    padding: 0 10px 0 20px;
+                    display: inline-block;
+
+                    &:after {
+                        content: ":";
+                        padding-left: 10px;
+                    }
+
+                    &.position {
+                        display: block;
+                    }
+                }
+
+                &:before {
+                    color: @base-gray;
+                }
+
+                &:nth-child(1) {
+                    &:before {
+                        .fa-icon("\f041", @icon);
+                        position: absolute;
+                        left: 0;
+                    }
+
+                    span:after {
+                        display: none;
+                    }
+                }
+
+                &:nth-child(2):before {
+                    .fa-icon("\e91c", @icon_2);
+                    position: absolute;
+                    left: 0;
+                }
+
+                &:nth-child(3):before {
+                    .fa-icon("\e91d", @icon_2);
+                    position: absolute;
+                    left: 0;
+                }
+            }
+
+            .position {
+                ol {
+                    list-style: none;
+                    margin: 0px 20px;
+                    padding: 0;
+
+                    li {
+                        padding-left: 15px;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            .transform-display(translateY(-50%));
+                            width: 8px;
+                            height: 8px;
+                            .border-radius(100%);
+                            background-color: @base-gray;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.quake_table_th {
+    width: 100px;
+}
+
+// --------------- END 地震資料
+/* --------------- 育樂氣象 --------------- */
+
+.info_block {
+    .text {
+        margin-top: 10px;
+    }
+}
+
+.info_block-L {
+    border-right: 1px solid @base-lt-gray;
+}
+
+.info_block-R {
+    position: relative;
+    height: 100%;
+    min-height: 550px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 300px;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    /* 單車 */
+    &.bike:before {
+        background: url("../../assets/img/cwb/pic/01-bike.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 登山 */
+    &.mountaineering:before {
+        background: url("../../assets/img/cwb/pic/02-mountaineering.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 國家森林遊樂區 */
+    &.govtree:before {
+        background: url("../../assets/img/cwb/pic/03-govtree.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 國家公園 */
+    &.govpark:before {
+        background: url("../../assets/img/cwb/pic/04-govpark.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 國家風景 */
+    &.govview:before {
+        background: url("../../assets/img/cwb/pic/05-govview.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 休閒農場 */
+    &.farm:before {
+        background: url("../../assets/img/cwb/pic/06-farm.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 主要水庫 */
+    &.reservoirs:before {
+        background: url("../../assets/img/cwb/pic/07-reservoirs.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 海水浴場 */
+    &.sea:before {
+        background: url("../../assets/img/cwb/pic/08-sea.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 海釣 */
+    &.fishing:before {
+        background: url("../../assets/img/cwb/pic/09-fishing.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 主要港口 */
+    &.ferry:before {
+        background: url("../../assets/img/cwb/pic/10-ferry.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 休閒漁港 */
+    &.leisure-ferry:before {
+        background: url("../../assets/img/cwb/pic/11-leisure-ferry.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 觀星 */
+    &.star:before {
+        background: url("../../assets/img/cwb/pic/12-star.png") no-repeat center center;
+        background-size: contain;
+    }
+
+    /* 養殖專區 */
+    &.breeding:before {
+        background: url("../../assets/img/cwb/pic/13-breeding.png") no-repeat center center;
+        background-size: contain;
+    }
+}
+
+/* ---------------END 育樂氣象 --------------- */
+
+/* --------------- 箭頭方位 --------------- */
+
+span[aria-label] {
+    display: block;
+
+    .calm,
+    .calmen,
+    .icon-unstable {
+        display: block;
+        color: @base-dk-gray;
+        font-size: @md-font-size;
+        font-style: normal;
+    }
+
+    &.seadirec {
+        .icon-cwb-arrow-up {
+            display: block;
+            color: @base-lt-sea;
+            font-size: @md-font-size;
+
+            &.nne {
+                .transform-display(rotate(22.5deg));
+            }
+
+            &.ne {
+                .transform-display(rotate(45deg));
+            }
+
+            &.ene {
+                .transform-display(rotate(67.5deg));
+            }
+
+            &.e {
+                .transform-display(rotate(90deg));
+            }
+
+            &.ese {
+                .transform-display(rotate(112.5deg));
+            }
+
+            &.se {
+                .transform-display(rotate(135deg));
+            }
+
+            &.sse {
+                .transform-display(rotate(157.5deg));
+            }
+
+            &.s {
+                .transform-display(rotate(180deg));
+            }
+
+            &.ssw {
+                .transform-display(rotate(202.5deg));
+            }
+
+            &.sw {
+                .transform-display(rotate(225deg));
+            }
+
+            &.wsw {
+                .transform-display(rotate(247.5deg));
+            }
+
+            &.w {
+                .transform-display(rotate(270deg));
+            }
+
+            &.wnw {
+                .transform-display(rotate(292.5deg));
+            }
+
+            &.nw {
+                .transform-display(rotate(315deg));
+            }
+
+            &.nnw {
+                .transform-display(rotate(337.5deg));
+            }
+        }
+    }
+
+    &.wind {
+        .icon-cwb-arrow-up {
+            display: block;
+            color: @base-dk-blue;
+            font-size: @md-font-size;
+
+            &.ssw {
+                .transform-display(rotate(22.5deg));
+            }
+
+            &.sw {
+                .transform-display(rotate(45deg));
+            }
+
+            &.wsw {
+                .transform-display(rotate(67.5deg));
+            }
+
+            &.w {
+                .transform-display(rotate(90deg));
+            }
+
+            &.wnw {
+                .transform-display(rotate(112.5deg));
+            }
+
+            &.nw {
+                .transform-display(rotate(135deg));
+            }
+
+            &.nnw {
+                .transform-display(rotate(157.5deg));
+            }
+
+            &.n {
+                .transform-display(rotate(180deg));
+            }
+
+            &.nne {
+                .transform-display(rotate(202.5deg));
+            }
+
+            &.ne {
+                .transform-display(rotate(225deg));
+            }
+
+            &.ene {
+                .transform-display(rotate(247.5deg));
+            }
+
+            &.e {
+                .transform-display(rotate(270deg));
+            }
+
+            &.ese {
+                .transform-display(rotate(292.5deg));
+            }
+
+            &.se {
+                .transform-display(rotate(315deg));
+            }
+
+            &.sse {
+                .transform-display(rotate(337.5deg));
+            }
+        }
+    }
+}
+
+/* --------------- 原鄉預報 --------------- */
+
+.icon-tribes {
+    background: url("../../assets/img/cwb/tribes/icon-tribes.png") no-repeat center center;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    display: block;
+    float: left;
+    .transform-display(translateY(-5px));
+}
+
+/* --------------- 潮汐--------------- */
+
+.note_icon {
+    ul {
+        display: flex;
+
+        li {
+            position: relative;
+            font-size: @xs-font-size;
+            padding-left: 25px;
+            margin: 0 10px;
+
+            i {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                .transform-display(translateY(-50%));
+                font-size: @xs-font-size + .3;
+
+                &.icon-cwb-height {
+                    color: #fe6029;
+                }
+
+                &.icon-cwb-low {
+                    color: #17d1f0;
+                }
+            }
+        }
+    }
+}
+
+.tidal-chart-wrap {
+    .tidal-head {
+        .flexbox;
+        .align-item(center,
+        center);
+        padding: 8px 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+
+        h4 {
+            position: relative;
+            color: #555;
+            font-size: @xs-font-size;
+            letter-spacing: 1px;
+            padding: 0;
+            width: 100%;
+
+            i {
+                background: @base-dk-orange;
+                color: #fff;
+                padding: 10px;
+            }
+        }
+
+        .text-content {
+            width: 100%;
+            text-align: right;
+        }
+
+        p {
+            color: #555;
+            letter-spacing: 1px;
+            display: inline-block;
+
+            small {
+                color: @base-dk-gray;
+                display: block;
+            }
+        }
+    }
+
+    label {
+        font-weight: 200;
+
+        &+.btn {
+            background: @base-lt-blue;
+            color: #fff;
+            margin-left: 15px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    #tidal-chart {
+        width: 100%;
+        position: relative;
+
+        .date_line {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            &:after,
+            &:before {
+                content: '';
+                position: absolute;
+                background: @base-blue;
+                top: 0;
+                width: 1px;
+                height: 100%;
+            }
+
+            &:before {
+                left: calc(100%/3);
+            }
+
+            &:after {
+                right: calc(100%/3);
+            }
+        }
+    }
+
+    .chart_top {
+        margin-top: 40px;
+        .flexbox;
+        .flex(column,
+        nowrap);
+
+        .date {
+            order: 2;
+            padding-left: 0;
+            list-style: none;
+            .flexbox;
+            .flex(row,
+            nowrap);
+
+            li {
+                width: 100%;
+                -ms-flex: 0 1 auto;
+                text-align: center;
+
+                span {
+                    color: @base-dk-orange;
+                }
+
+                // &:nth-child(even) {
+                //   span{
+                //     color:  @base-blue-3;
+                //   }
+                // }
+            }
+        }
+
+        .xAxis {
+            order: 1;
+            padding-left: 0;
+            list-style: none;
+            .flexbox;
+            .flex(row,
+            nowrap);
+            width: 98%;
+            margin: 0 auto;
+
+            li {
+                width: 100%;
+                -ms-flex: 0 1 auto;
+                padding: 5px 0;
+                margin: 0 1px;
+                font-size: @xs-font-size - .1;
+                min-height: 73px;
+
+                span {
+                    background: #555;
+                    color: #fff;
+                    text-align: center;
+                    display: block;
+                }
+
+                i {
+                    display: block;
+                    font-size: @md-font-size + .6;
+                    text-align: center;
+                    padding-bottom: 5px;
+                    min-height: 43px;
+
+                    &.icon-cwb-low {
+                        color: @base-blue-3;
+                    }
+
+                    &.icon-cwb-height {
+                        color: @base-dk-orange;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ------------- 颱風百問 ------------ */
+
+.en-name span {
+    display: block;
+    color: #777;
+    font-size: .8rem;
+}
+
+
+
+.table-headstyle {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    color: #116dbf;
+    padding: 12px;
+}
+
+/* ------------- 消息公告 首頁 ------------ */
+
+.gradient-blue {
+    background: #bfe9ff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 30%, #e0f0f9 100%);
+    background: -webkit-linear-gradient(top, #ffffff 30%, #e0f0f9 100%);
+    background: linear-gradient(to bottom, #ffffff 30%, #e0f0f9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e0f0f9', GradientType=0);
+}
+
+
+
+.news-list,
+.news-list dd,
+.news-list dt {
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 1.8;
+}
+
+.news-list {
+    .flexbox;
+    .align-item(flex-start,
+    start);
+    margin-bottom: 10px;
+}
+
+.news-list dt {
+    width: 200px;
+    .flexbox;
+}
+
+.news-list dd {
+    width: 100%;
+    padding-bottom: 0;
+    text-align: justify;
+}
+
+.news-list dd a {
+    color: #1a1a1a;
+}
+
+.news-list span {
+    color: #555;
+    display: inline-block;
+    font-size: @xs-font-size - .1;
+    padding: 2px 0;
+    text-align: center;
+    width: 110px;
+    height: 30px;
+    .border-radius(2px);
+
+    &.news {
+        background: #3e9fd2;
+        color: #fff;
+    }
+
+    &.announce {
+        background: #41c1c2;
+        color: #fff;
+    }
+
+    &.opening {
+        background: #125aac;
+        color: #fff;
+    }
+}
+
+.announce-container {
+    p {
+        margin-top: 10px;
+    }
+}
+
+.common-func {
+    background: @base-gray;
+    min-height: 300px;
+
+    h4 {
+        margin-bottom: 0;
+    }
+
+    ul {
+        margin-bottom: 0;
+    }
+
+    li {
+        border-top: 1px solid #fff;
+        padding: 15px 40px;
+
+        &:hover {
+
+            a,
+            i {
+                color: #fff;
+            }
+        }
+    }
+
+    i {
+        color: @base-dk2-blue;
+        padding-right: 10px;
+        font-size: @sm-font-size;
+    }
+}
+
+.media-container {
+    min-height: 300px;
+    text-align: center;
+
+    h3 {
+        position: relative;
+        display: inline-block;
+        padding: 15px 0;
+
+        &::before {
+            content: "";
+            position: absolute;
+            border-bottom: 2px solid;
+            width: 100%;
+            bottom: 5px;
+        }
+    }
+
+    li {
+        cursor: pointer;
+        padding: 10px;
+        text-align: left;
+
+        &:hover {
+            background: @base-lt-blue;
+
+            a,
+            i {
+                color: #fff;
+            }
+        }
+    }
+
+    i {
+        padding: 0 5px;
+    }
+}
+
+.content-bg-blue {
+    background-image: url("../../assets/img/home/content-bg-blue.png");
+    background-position: bottom center;
+    background-repeat: repeat-x;
+}
+
+.cube-wrap {
+    border: 1px solid #ddd;
+    background: #fff;
+    .shadow(0px 1px 0 rgba(0,
+    0,
+    0,
+    0));
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 40px;
+    display: block;
+    position: relative;
+    .transition-animate(all .3s ease-in-out) !important;
+
+    &:hover {
+        .shadow(0px 1px 15px rgba(0,
+        0,
+        0,
+        .1));
+
+        .cube-head {
+            background-color: #eee;
+        }
+
+        .cube-body {
+            &:before {
+                opacity: 1;
+            }
+
+            .ovr-text {
+
+                i,
+                span {
+                    .transform-display(translateY(0));
+                    .transition-animate(all .3s cubic-bezier(.645,
+                    .045,
+                    .355,
+                    1));
+                    opacity: 1;
+                }
+
+                i {
+                    transition-delay: 0.1s;
+                }
+
+                span {
+                    transition-delay: 0.2s;
+                }
+            }
+        }
+    }
+
+    .cube-head {
+        padding: 8px 10px;
+        font-size: @xs-font-size + .1;
+        letter-spacing: 2px;
+        font-weight: 400;
+        color: #555;
+    }
+
+    .cube-body {
+        overflow: hidden;
+        position: relative;
+        .transition-animate(all .3s ease-in-out);
+        z-index: 0;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .4);
+            z-index: 1;
+            opacity: 0;
+            .transition-animate(all .3s ease-in-out);
+        }
+
+        .ovr-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .transform-display(translate(-50%,
+            -50%));
+            z-index: 10;
+            width: 100%;
+            .flexbox;
+            .flex(row,
+            wrap);
+
+            i,
+            span {
+                display: block;
+                width: 100%;
+                text-align: center;
+                color: #fff;
+                .transform-display(translateY(30px));
+                .transition-animate(all .3s cubic-bezier(.645,
+                .045,
+                .355,
+                1));
+                opacity: 0;
+            }
+
+            i {
+                font-size: @md-font-size;
+                padding: 10px;
+            }
+
+            span {
+                font-size: @xs-font-size;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
+
+/*Notification*/
+
+.profile .notification {
+    overflow: hidden;
+    padding: 10px 15px;
+}
+
+.profile .notification:first-child {
+    border-top: none;
+}
+
+.profile .notification i,
+.profile .notification img {
+    float: left;
+    margin-right: 10px;
+}
+
+.profile .notification img {
+    width: 35px;
+    height: 35px;
+}
+
+.profile .notification .two span {
+    //padding-left:10px; padding-top:8px;
+    color: #000;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.profile .notification span {
+    padding-left: 10px;
+    padding-top: 8px;
+    color: #1170bf;
+    display: inline-block;
+}
+
+.profile .notification .two {
+    min-width: 100px;
+}
+
+.profile .notification .three {
+    min-width: 160px;
+}
+
+.measures-v2 {
+    height: 156px; //background: url('../../assets/img/home/kv-cube-4.png') left top no-repeat;
+    //background-size: cover;
+}
+
+.measures-v2 .day2,
+.measures-v2 .day3 {
+    position: relative;
+    color: #fff;
+    width: 50%;
+    height: auto;
+
+    h3 {
+        color: inherit;
+        position: absolute;
+        left: 38px;
+        top: 10px;
+        letter-spacing: 2px;
+        z-index: 2;
+        text-align: center;
+        font-size: 1.2rem;
+
+        small {
+            color: inherit;
+            letter-spacing: 1px;
+            font-size: .9rem;
+            padding-left: 11px;
+        }
+    }
+
+    h4 {
+        color: inherit;
+        position: absolute;
+        left: 35px;
+        top: 88px;
+        letter-spacing: 1px;
+        z-index: 2;
+        font-size: 1.2rem;
+        font-family: 'Karla', sans-serif;
+    }
+
+    h5 {
+        color: inherit;
+        position: absolute;
+        left: 43px;
+        top: 113px;
+    }
+}
+
+.measures-v2 .day2 {
+    float: left;
+
+    &::after {
+        top: 22px;
+        right: -1px;
+        height: 110px;
+        width: 2px;
+        content: " ";
+        margin-left: 0;
+        position: absolute;
+        background: #fff;
+    }
+}
+
+.measures-v2 .day3 {
+    float: right;
+}
+
+//icons 要改為font icon
+.sun-cloud,
+.sun-cloud-rain {
+    display: block;
+    width: 60px;
+    height: 54px;
+    position: relative;
+    left: 37px;
+    top: 40px;
+}
+
+.sun-cloud {
+    background: url('../../assets/img/home/sun-cloud.png') no-repeat center center;
+    background-size: cover;
+}
+
+.sun-cloud-rain {
+    background: url('../../assets/img/home/sun-cloud-rain.png') no-repeat center center;
+    background-size: cover;
+}
+
+.measures-v3 {
+    height: 156px; //background: url('../../assets/img/home/kv-cube-3.png') left top no-repeat;
+    background-size: cover;
+    position: relative;
+    color: #fff;
+
+    h3 {
+        color: inherit;
+        position: absolute;
+        letter-spacing: 1px;
+        z-index: 2;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .title-1 {
+        left: 146px;
+        top: 10px;
+    }
+
+    .title-2 {
+        left: 127px;
+        top: 74px;
+    }
+
+    p {
+        color: inherit;
+        position: absolute;
+        letter-spacing: 1px;
+        z-index: 2;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+
+    .content-1 {
+        left: 170px;
+        top: 43px;
+    }
+
+    .content-2 {
+        left: 170px;
+        top: 106px;
+    }
+
+    span.icon-atmos {
+        position: absolute;
+        left: 31px;
+        top: 38px;
+        display: block;
+        z-index: 2;
+        width: 80px;
+        height: 80px;
+        background: url('../../assets/img/home/kv-mask-1.png') no-repeat top left;
+        background-size: cover;
+    }
+}
+
+/* datepickers */
+
+/* End datepickers */
+
+.img-lightbox {
+    margin: 35px 0;
+
+    &.single-link a {
+        position: static;
+        color: @base-blue;
+
+        span {
+            display: block;
+            letter-spacing: 1px;
+
+            i {
+                padding-right: 10px;
+            }
+        }
+
+        &:hover span {
+            text-decoration: underline;
+        }
+
+        &:before {
+            display: none;
+        }
+    }
+
+    a {
+        display: block;
+        position: relative;
+        z-index: 0;
+
+        .fa-search {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            .transform-display(translateX(-50%) translateY(30px));
+            .transition-animate(all .3s ease-in-out);
+            color: #fff;
+            font-size: 2.4rem;
+            opacity: 0;
+        }
+
+        &:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: @base-blue;
+            .transition-animate(all .3s ease-in-out);
+            opacity: 0;
+        }
+
+        &:hover {
+            .fa-search {
+                .transform-display(translateX(-50%) translateY(-50%));
+                opacity: 1;
+            }
+
+            &:before {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.modal-content {
+    h3 {
+        padding: 0 15px;
+    }
+}
+
+/* 局徽說明 */
+
+.bg-gray {
+    background: @base-lt-gray;
+    min-height: 362px;
+    .flexbox;
+    .flex(column, wrap);
+    .justify-content(center, center);
+    .align-item(center, center);
+
+    img {
+        width: 60%;
+        margin-bottom: 1em;
+    }
+
+    p {
+        color: #555;
+        line-height: 1em;
+        font-size: @sm-font-size;
+        text-align: center;
+    }
+}
+
+/* End 局徽說明 */
+
+/* 局長的話 */
+
+.talk {
+    img {
+        float: left;
+        width: 30%;
+        height: auto;
+        margin: 0 30px 30px 0;
+    }
+
+    p {
+        line-height: 2em;
+    }
+}
+
+.letter {
+    background: @base-ltr-blue;
+    padding: 20px;
+}
+
+.letter-title {
+    text-align: center;
+    margin: 30px 0 60px;
+
+    h3 {
+        color: @base-blue;
+        position: relative;
+        letter-spacing: 1.5px;
+        font-size: @md-font-size;
+
+        &:before {
+            content: "";
+            border-bottom: 3px solid @base-blue;
+            position: absolute;
+            bottom: -26px;
+            width: 3em;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.letter-content {
+    background: #fff;
+    padding: 45px;
+
+    h3 {
+        color: @base-blue;
+        float: right;
+    }
+
+    img {
+        text-align: right;
+    }
+}
+
+/* End 局長的話 */
+
+/* 圖文menu */
+
+.report {
+    background: @base-lt-gray; // padding: 10px;
+    position: relative;
+    margin: 20px; // min-height: 170px;
+
+    a.fanbox {
+        min-height: 170px;
+        padding: 10px;
+        .flexbox;
+        .flex(row,
+        nowrap);
+        .align-item(center,
+        center);
+
+        .visible-more {
+            text-align: center;
+            display: none;
+            width: 96%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .transform-display(translateX(-50%)); // min-height: 60px;
+            z-index: 1;
+            margin-top: -15px;
+        }
+
+        &:after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            background: @base-sea;
+            .transition-animate(all .3s ease-in-out);
+            opacity: 0;
+        }
+
+        &:hover {
+            &::after {
+                opacity: 0.5;
+            }
+
+            .visible-more {
+                display: block;
+            }
+        }
+    }
+
+    h3 {
+        color: @base-blue;
+        margin-top: 15px;
+    }
+
+    .cir-photo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid @base-blue;
+        overflow: hidden;
+        float: left;
+        margin: 15px;
+
+        img {
+            height: 100%;
+        }
+    }
+}
+
+/* End 圖文 menu */
+
+/* 即時閃電 */
+
+.fa-{
+    &red {
+        color: @base-red;
+    }
+    &blue {
+        color: @base-dk-blue;
+    }
+    &yellow{
+        color: @base-lt-yellow;
+    }
+    &green{
+        color: @abse-dk-green;
+    }
+}
+
+
+
+
+/* 歷史圖說 */
+
+.story-photo {
+    border-bottom: 2px solid @base-ltr-blue;
+    text-align: center;
+    padding-bottom: 10px;
+
+    .photo-visible {
+        padding: 0;
+        width: 99%;
+        max-height: 232px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+}
+
+/* End 歷史圖說 */
+
+/* 觀測資料 chart */
+
+.chart-box {
+    background: @base-lt-gray;
+    position: relative;
+    padding: 40px;
+
+    h3 {
+        position: absolute;
+        z-index: 2;
+        right: 40px;
+        top: 5px;
+        color: #555;
+        font-size: @xs-font-size;
+    }
+}
+
+/* End 觀測資料 chart */
+
+.mid {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* 便民服務 */
+
+.service-fa {
+    p {
+        color: @base-dk-gray;
+        text-align: center;
+    }
+
+    .service-content {
+        position: relative;
+        border: 1px solid @base-gray;
+        padding: 40px 5px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        min-height: 235px;
+
+        a {
+            // color: @base-yellow;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%); // &:hover {
+            //     text-decoration: underline;
+            // }
+        }
+
+        h3 {
+            vertical-align: middle;
+            min-height: 3em;
+            text-align: center;
+        }
+
+        .mug {
+            border: 3px solid @base-dk-blue;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -30px;
+
+            img {
+                height: 100%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+/* End 便民服務 */
+
+/* 觀測時間 */
+
+.show-time {
+    border: 1px solid @base-gray;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: @xs-font-size;
+    letter-spacing: 1.5px;
+    position: relative;
+
+    i {
+        font-size: @md-font-size;
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        .transform-display(translateY(-50%));
+        color: @base-red;
+    }
+
+    +p {
+        margin: 0;
+    }
+}
+
+/* End 觀測時間 */
+
+.blue-box {
+    border: 1px solid @base-gray;
+    padding: 0 20px 10px;
+
+    h3 {
+        background: @base-blue;
+        color: #fff;
+        margin: 0 -20px 20px;
+        padding: 15px;
+        font-size: @sm-font-size;
+    }
+
+    p {
+        padding: 20px 3px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+    }
+
+    a,
+    span {
+        background: @base-gray;
+        padding: 10px 20px;
+        color: #555;
+        border-radius: 3px;
+        display: inline-block;
+
+        &:hover {
+            background: @base-dk-gray;
+            color: #fff;
+        }
+    }
+}
+
+.detailed {
+    ul {
+        padding: 0;
+        .flexbox;
+        list-style-type: none;
+
+        li {
+            width: 100%;
+            -ms-flex: 0 1 auto;
+            padding: 10px 30px;
+
+            i {
+                font-size: @sm-font-size;
+                position: absolute;
+                left: -1.5em;
+            }
+
+            span {
+                position: relative;
+                margin-right: 20px;
+                color: @base-blue;
+
+                &:before {
+                    content: "";
+                    width: 2px;
+                    height: 1.2em;
+                    position: absolute;
+                    top: 0;
+                    right: -12px;
+                    background: @base-blue;
+                }
+            }
+
+            &:first-child {
+                text-align: right;
+            }
+        }
+    }
+}
+
+.btn-red {
+    text-align: center;
+}
+
+.accordingstyle {
+    border-bottom: 1px solid @base-ltr-blue;
+    border-top: 1px solid @base-ltr-blue;
+    padding: 10px 0;
+    position: relative;
+    font-size: 1.2rem;
+
+    i {
+        color: @base-blue;
+        font-size: @md-font-size;
+        vertical-align: -5px;
+    }
+
+    &:before {
+        content: "";
+        border-top: 8px solid @base-gray;
+        position: absolute;
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.red-care:before {
+    content: "2";
+    background: #d12d33;
+    color: #fff;
+    font-style: initial;
+    padding: 6px;
+    border: 1px solid @base-lt-gray;
+    margin: 0 6px;
+}
+
+.green-care:before {
+    content: "3";
+    background: #007c59;
+    color: #fff;
+    font-style: initial;
+    padding: 6px;
+    border: 1px solid @base-lt-gray;
+    margin: 0 6px;
+}
+
+/* 會員服務 */
+
+.mainlink {
+    text-align: center;
+    .keyframes(rotate;
+
+        {
+        0% {
+            transform: rotateY(0deg);
+        }
+
+        100% {
+            transform: rotateY(360deg);
+        }
+    }
+
+    );
+
+    ul {
+        .flexbox;
+        .flex(row,
+        wrap);
+        .justify-content(center,
+        center);
+        list-style-type: none;
+        padding: 0;
+        margin: 40px 0;
+
+        li {
+            margin-bottom: 30px;
+
+            >a {
+                border-radius: 50%;
+                background: @base-sea;
+                display: inline-block;
+                margin: 0 40px 20px;
+                width: 100px;
+                height: 100px;
+                position: relative;
+                .transition-animate(all .5s ease-in-out);
+
+                i {
+                    font-size: @md-font-size + 1.8;
+                    color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    .transform-display(translate(-50%,
+                    -50%));
+                    .transition-animate(all .5s ease-in-out);
+                }
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    border: 1px solid @base-sea;
+                    width: 114px;
+                    height: 114px;
+                    left: -7px;
+                    top: -7px;
+                    border-radius: 50%;
+                    opacity: 1;
+                    .transition-animate(all .5s ease-in-out);
+                }
+
+                &:hover {
+                    .animation(rotate 1s linear alternate);
+                    background: #fff;
+                    .shadow(0 0 0 1px @base-sea inset);
+
+                    i {
+                        color: darken(@base-sea, 30%);
+                    }
+
+                    &:before {
+                        border-color: lighten(@base-sea, 25%);
+                    }
+                }
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+    }
+
+    h3 {
+        border-bottom: 2px solid @base-gray;
+        display: inline-block;
+        letter-spacing: 4px;
+        padding-bottom: 5px;
+        color: @base-dk-gray;
+    }
+
+    .detail-item {
+        .flexbox;
+        text-align: left;
+        margin: 20px 5px;
+
+        i {
+            background: @base-yellow;
+            color: #fff;
+            .border-radius(50%);
+            width: 50px;
+            height: 50px;
+            position: relative;
+            font-size: @md-font-size;
+            margin: 0 10px;
+
+            &:before {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                .transform-display(translate(-50%,
+                -50%));
+            }
+        }
+
+        dl {
+            flex: 2;
+            margin-bottom: 0;
+            .flexbox;
+            .flex(column,
+            nowrap);
+            .justify-content(center,
+            center);
+        }
+    }
+
+    .member-item {
+        a {
+            color: #555;
+            display: block;
+            .transition-animate(all .3s ease-in-out);
+
+            &:hover {
+                opacity: .6;
+            }
+        }
+    }
+}
+
+/* End 會員服務 */
+
+/* 桌布下載 */
+
+.download-paper {
+    text-align: center;
+    margin-bottom: 20px;
+    .flexbox;
+
+    a {
+        background: @base-yellow;
+        padding: 5px;
+        color: #222;
+        width: 100%;
+        box-shadow: none;
+
+        &:nth-child(2) {
+            margin-left: 10px;
+        }
+
+        &:hover {
+            background: darken(@base-yellow, 10%);
+        }
+    }
+}
+
+/* End桌布下載 */
+
+/* 智慧型APP服務 */
+
+.half-content {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto 40px;
+}
+
+/* End智慧型APP服務 */
+
+/* 長浪即時訊息 */
+
+i.warn {
+    float: left;
+    margin: 15px 15px 0 0;
+    font-size: @md-font-size + 1.1;
+
+    i {
+        font-style: normal;
+    }
+
+    ~p {
+        margin-left: 4em;
+    }
+}
+
+/* End 長浪即時訊息 */
+
+/* 日曆資料表 */
+
+.yellowstyle {
+    h3 {
+        color: @base-dk-orange;
+    }
+}
+
+/* End 日曆資料表 */
+
+/* 全台天氣概況及預報 */
+
+.week-loop {
+    text-align: center;
+    padding: 0;
+
+    img {
+        width: 100%;
+        margin: 10px auto;
+    }
+}
+
+/* 基本隔線留白 col-md-6 */
+
+.base-grid {
+    padding: 30px 0;
+}
+
+.sm-align-r {
+    text-align: right;
+    display: inline-block;
+}
+
+.md-min-65 {
+    min-width: 65px;
+}
+
+// 藍色公路
+.path-blue {
+    background-color: lighten(@base-ltr-blue, 1%);
+    .border-radius(4px);
+    overflow: hidden;
+    position: relative;
+
+    .back {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: @base-lt-blue;
+        .border-radius(50%);
+        width: 100px;
+        height: 100px;
+        .flexbox;
+        .flex(column,
+        wrap);
+        z-index: 99;
+        .justify-content(center,
+        center);
+        .align-item(center,
+        center);
+
+        &:hover {
+            background: @base-blue;
+        }
+
+        i,
+        span {
+            display: block;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+        }
+
+        i {
+            font-size: @md-font-size;
+        }
+
+        span {
+            padding-top: 10px;
+            font-size: @xs-font-size - .1;
+            letter-spacing: 2px;
+        }
+    }
+
+    &:hover {
+        img {
+            .transform-display(scale(1.1));
+        }
+    }
+
+    img {
+        .transition-animate(all .3s ease-in-out);
+        .transform-display(scale(1));
+    }
+
+    .path-blue-active {
+        display: block;
+    }
+
+    .path-blue-hidden {
+        display: none;
+    }
+}
+
+.dl-horizontal {
+    dt {
+        float: left;
+        width: 20px;
+    }
+
+    dd {
+        margin-left: 25px;
+        font-size: @xs-font-size - .1;
+        text-align: left;
+    }
+}
+
+.cir-blu {
+    margin: 0 5px;
+}
+
+.mark-bgblue {
+    background: @base-blue;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: @xs-font-size + .2;
+    letter-spacing: 2px;
+}
+
+/* 育樂預報 */
+
+.qr-code {
+    .flexbox;
+    .flex(row,
+    wrap);
+    .align-item(center,
+    center);
+    .justify-content(center,
+    center);
+    padding: 10px 20px;
+}
+
+/* End 育樂預報 */
+
+.flex-label {
+    .flexbox;
+    .align-item(center, center);
+
+    label {
+        margin: 0 5px;
+
+        &:first-child {
+            flex: 1 1;
+            -ms-flex: 1 1;
+            text-align: right;
+        }
+
+        &:last-child {
+            flex: 4 1;
+            -ms-flex: 4 1;
+        }
+    }
+}
+
+.hide-content {
+    overflow: hidden;
+    line-height: 2;
+    height: 9rem;
+}
+
+.show-content {
+    height: auto;
+    line-height: 2;
+}
+
+.orange-text {
+    display: block;
+    color: @base-dk-orange;
+}
+
+.gray-bar {
+    // color: @base-dk-orange;
+    position: relative;
+    padding-left: 10px;
+    font-size: @xs-font-size + .2;
+    margin-bottom: 10px;
+    display: block;
+
+    &::before {
+        // .fa-icon("\f105",@icon);
+        content: "";
+        background: @base-gray;
+        width: 3px;
+        height: 1.5em;
+        .border-radius(4px);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        .transform-display(translateY(-50%));
+    }
+}
+
+.anchor {
+    &.active {
+        color: darken(@base-lt-blue, 30%) !important;
+    }
+}
+
+.viewmore {
+    display: block;
+    text-align: center;
+    margin: 10px;
+}
+
+.less {
+    display: none;
+}
+
+// knowledge_2輪播左右箭頭尺寸
+.carousel-font-size {
+    font-size: 1.3rem;
+}
+
+// 國際都市 一週溫度趨勢圖
+.tab_chart_wrap_C {
+
+    text,
+    rect,
+    path {
+        font-size: .8rem !important;
+    }
+}
+
+.d-inline {
+    display: inline;
+}
+
+.font-size-1rem {
+    font-size: 1rem;
+}
+
+// 全台測站
+.iframe-map {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+
+    iframe,
+    object,
+    embed {
+        border: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// 颱風消息
+.typhoon-slider {
+    position: relative;
+    margin-bottom: 1rem;
+
+    .typhoon-donlow-img {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        margin: 16px 0 0 -16px;
+        .transform-display(translateX(-100%));
+
+        .sky-form {
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+    }
+    .name{
+        position: absolute;
+        font-size: @xs-font-size + .1;
+        background: rgba(0,0,0,.6);
+        padding: .2rem .5rem;
+        color: #fff;
+    }
+    img{
+        width: 100%;
+    }
+}
+
+.typhoon-slider-list {
+    position: relative;
+    .flexbox;
+    // white-space: nowrap;
+    // overflow: auto;
+    // overflow: hidden;
+    // overflow-x: scroll;
+    button{
+        padding: 0;
+        width: 100%;
+        -ms-flex: 0 1 auto;
+        max-width: 25%;
+        margin-right: .5rem;
+        &:hover,
+        &.active{
+            opacity: .6;
+        }
+    }
+    img {
+        display: inline-block;
+    }
+
+    .automatic-slider {
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+
+        .sky-form {
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+
+        input {
+            border-width: 1px;
+            margin-right: .5rem;
+        }
+    }
+}
+.probability-caption{
+    background: rgba(255,255,255,.2);
+    // background: @base-ltr-blue;
+    padding: 1rem;
+    margin: 0 -15px 1rem;
+    // display: none;
+    p{
+        font-size: @xs-font-size;
+        color: #fff;
+        // color: @base-dk-blue;
+        margin: 0;
+        line-height: 2;
+    }
+}
+.btn-bk-blue {
+    color: #fff;
+    background-color: @base-dk2-blue;
+
+    &:hover {
+        color: #fff;
+        background-color: @base-blue;
+    }
+}
+
+
+// 颱風警報
+.media-block {
+    p {
+        padding: 10px 20px;
+        margin: 0;
+        letter-spacing: 2px;
+        font-size: @sm-font-size - .2;
+        color: #fff;
+        background: @base-dk-blue;
+    }
+
+    a {
+        overflow: hidden;
+        display: block;
+        position: relative;
+
+        &::before,
+        &::after {
+            position: absolute;
+            .transition-animate(all .3s ease-in-out);
+            pointer-events: none;
+        }
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 89, 168, 0);
+        }
+
+        &::after {
+            .fa-icon("\e923", @icon_2);
+            left: 50%;
+            top: 50%;
+            .transform-display(translate(-50%, -50%));
+            color: transparent;
+            font-size: @md-font-size + 2;
+        }
+
+        &:hover {
+            &::before {
+                background: rgba(9, 89, 168, .5);
+            }
+
+            &::after {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.grid-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+/* 正副首長 */
+
+.chief {
+
+    .container {
+        padding: 40px 0px;
+    }
+
+    .bg-blue {
+        background-color: @base-ltr-blue;
+    }
+
+    .list {
+        padding-top: 40px;
+        
+
+        h3 {
+            color: @base-blue;
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 25px;
+
+            li {
+                padding-bottom: 5px;
+                color: #555;
+            }
+        }
+
+    }
+}
+
+/* END 正副首長 */
+
+/* 語音答詢 */
+.vab-bk{
+    background: url(../img/vba-bk.png) no-repeat top; 
+    background-size: cover;
+    min-height: 100vh;
+    .wrapper{
+        background:transparent;
+    }
+}
+.vab-litle{
+    color: @base-blue;
+    position: relative;
+    display: inline-block;
+    padding: 3rem 0 .5rem 0;
+    margin-bottom: 2rem;
+    &::before{
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 25%,rgba(255,255,255,1) 75%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        bottom: 0;
+    }
+}
+.vab-text{
+    color: @base-blue; 
+    text-align: center;
+    font-size: @sm-font-size;
+}
+.vab-microphone{
+    position: relative;
+    padding: 8rem;
+    button{
+    background-color: transparent;
+    border: none;
+    i{
+        &:active{
+            color: @base-dk3-blue;
+        }
+    }
+    }
+    i{
+        color: @base-blue;
+        font-size: calc(@md-font-size * 2);
+        z-index: 100;
+        &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: #fff;
+            width: 0;
+            height: 0;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            .transform-display(translateX(-50%) translateY(-50%));
+            .border-radius (50%);
+            z-index: -1;
+            width: 120px;
+            height: 120px;
+        }
+    }
+    &::before, &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: #fff;
+        width: 0;
+        height: 0;
+        opacity: .3;
+        top: 50%;
+        left: 50%;
+        right: 50%;
+        .transform-display(translateX(-50%) translateY(-50%));
+        .border-radius (50%);
+        z-index: -1;
+    }
+    &::before{
+      width: 220px;
+      height: 220px;
+      .shadow(0 0 20px @base-blue);
+    }
+    &::after{
+        width: 170px;
+        height: 170px;
+    }
+}
+.say-password{
+    margin: 0 auto;
+    display: block;
+    .vab-label{
+        color: @base-blue;
+    }
+    .vab-input{
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 1px solid #fff;
+        .border-radius (50px)!important;
+        .shadow(0 0 5px #fff);
+        &:focus{
+            border: 1px solid #fff;
+        }
+    }
+    .form-control{
+        margin-bottom: 1rem;
+        display: block;
+    }
+    .input-success{
+        border: 1px solid @abse-dk-green;
+        &:focus{
+            border: 1px solid @abse-dk-green;
+        }
+    }
+    .input-failed{
+        border: 1px solid @base-dk-red;
+        &:focus{
+            border: 1px solid @base-dk-red;
+        }
+    }
+    .vab-success{
+        display: inherit;
+        color: @abse-dk-green;
+    }
+    .vab-failed{
+        display: inherit;
+        color: @base-dk-red;
+    }
+    .next-btn{
+        width: 100%;
+        color: #fff;
+        background-color: @base-blue;
+        border: 1px solid @base-blue;
+        .border-radius (50px)!important;
+        margin-bottom: 1rem;
+    }
+}
+.vab-prompt{
+    button{
+        background-color: transparent;
+        font-size: @md-font-size;
+        color: @base-blue;
+        top: -10px;
+    }
+}
+.vab-prompt .dropdown-toggle:active, .vab-prompt.open .dropdown-toggle{
+    .shadow(none);
+}
+.prompt-menu{
+    background-color:#5797d2;
+    outline: none;
+    border: 1px solid transparent;
+    .shadow(none);
+    width: 270px;
+    padding: 8px;
+    li{
+        color: #fff;
+    }
+    &::before{
+    content: " ";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: -.5rem;
+    left: 1rem;
+    .transform-display(rotate(45deg));
+    background-color:#5797d2;
+    z-index: -1;
+    }
+}
+.vab-answer{
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 2rem 0;
+    padding: 1rem;
+.vab-answer-text{
+    color: @base-blue;
+    a{
+        color: @base-blue;
+        border-bottom: 1px solid @base-blue;
+        &:hover{
+        color: #333;
+        border-bottom: 1px solid #333;
+        }
+    }
+}}
+/* END 語音答詢 */

@@ -1,0 +1,22 @@
+// 無障礙
+
+.acc,
+.acc:hover {
+  color: transparent!important;
+  border: none !important;
+  // display: table-column;
+  background: none!important;
+}
+
+body.show-focus-outlines a:focus,
+body.show-focus-outlines button:focus,
+body.show-focus-outlines input:focus,
+body.show-focus-outlines [tabindex]:focus {
+.shadow(0 0 2px rgba(0,0,0,.5));
+}
+body:not(.show-focus-outlines) a:focus,
+body:not(.show-focus-outlines) button:focus,
+body:not(.show-focus-outlines) input:focus,
+body:not(.show-focus-outlines) [tabindex]:focus {
+  outline: none;
+}

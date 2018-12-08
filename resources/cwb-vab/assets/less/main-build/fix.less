@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
+body {
+    font-family: '微軟正黑體', '思源黑體', 'Roboto', sans-serif;
+}
+
+#chart_tem {
+    padding: 0 20px;
+}
+
+.table-responsive {
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        height: 7px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: @base-lt-blue;
+        padding: 10px;
+        .border-radius(10px);
+    }
+}
+
+.sevenDaysReport {
+    .uvi_wrap {
+        td {
+            vertical-align: middle;
+        }
+        td>span {
+            .flexbox;
+            .flex(row,nowrap);
+            .align-item(center,center);
+            .justify-content(center,center);
+            b,
+            i {
+                width: 100%;
+            }
+            b {
+                font-weight: normal;
+            }
+        }
+    }
+    .table {
+        position: relative;
+        tbody {
+            .signal {
+                object {
+                    width: 60px;
+                    height: 60px;
+                    .flexbox;
+                    margin: 0 auto;
+                }
+                img {
+                    display: block;
+                    max-width: 100%;
+                    height: 60px;
+                }
+            }
+        }
+        thead {
+            tr {
+                position: static;
+                .transition-animate(all .3s ease-in-out);
+                &.fixed {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    z-index: 9999;
+                }
+                &.static {
+                    position: static;
+                }
+            }
+            td,
+            th {
+                width: calc(100vw / 7);
+                border-right: 1px solid rgba(255, 255, 255, .2);
+                &:last-child {
+                    border-right: none;
+                }
+            }
+        }
+    }
+    .table td {
+        text-align: center;
+    }
+    .data-time {
+        .transition-animate(all .3s ease-in-out);
+        .transform-display(scale(0));
+        transform-origin: top center;
+        position: absolute;
+        &.is_open {
+            .transition-animate(all .3s ease-in-out);
+            .transform-display(scale(1));
+            position: static;
+        }
+        .th_row_2 {
+            position: static;
+            .transition-animate(all .3s ease-in-out);
+            background-color: #e4f3fe !important;
+            &.fixed {
+                position: fixed;
+                top: 89px;
+                left: 0;
+                z-index: 9999;
+                border-bottom: 3px solid @base-blue;
+            }
+            &.static {
+                position: static;
+            }
+            th {
+                color: #555;
+                padding: 25px 0;
+                text-align: center;
+                font-size: @xs-font-size;
+                letter-spacing: 1px;
+                &:nth-child(even) {
+                    background: #daecf7;
+                }
+            }
+        }
+        tr {
+            &:nth-child(4n+4),
+            &:nth-child(4n+5) {
+                background: @base-lt-gray;
+            }
+            td {
+                font-size: @xs-font-size;
+                .icon-umbrella {
+                    display: inline-block;
+                    padding-bottom: 6px;
+                    font-size: @sm-font-size;
+                    color: @base-blue;
+                }
+                .icon-cwb-Ultraviolet-radiation2 {
+                    display: block;
+                    padding-bottom: 6px;
+                    font-size: @md-font-size + .4;
+                    &.uvi_0-2 {
+                        color: @base-green;
+                    }
+                    &.uvi_3-5 {
+                        color: @base-yellow;
+                    }
+                    &.uvi_6-7 {
+                        color: @base-orange;
+                    }
+                    &.uvi_8-10 {
+                        color: @base-red;
+                    }
+                    &.uvi_11 {
+                        color: @base-purple;
+                    }
+                }
+                .wind-block{
+                    .wind-rose-icon();
+                }
+                
+            }
+        }
+        .data-title {
+            .h4 {
+                font-size: @xs-font-size;
+                color: #555;
+                margin-top: 5px;
+                text-shadow: none;
+                font-weight: normal;
+                &.ttem-C:after {
+                    content: "（˚C）";
+                }
+                &.ttem-F:after {
+                    content: "（˚F）";
+                }
+            }
+        }
+        &.v2 tr:nth-child(4n+2),
+        &.v2 tr:nth-child(4n+3) {
+            background: @base-lt-gray;
+        }
+        &.v2 tr:nth-child(4n+4),
+        &.v2 tr:nth-child(4n+5) {
+            background: transparent;
+        }
+        .td-nopadding {
+            td {
+                padding: 0 0 15px;
+            }
+        }
+    }
+}
+
+.tempChart_ex {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: left;
+        .flexbox;
+        .flex(row,
+        nowrap);
+        li {
+            display: block;
+            padding: 5px 15px 5px 30px;
+            position: relative;
+            &.ttem-C:after {
+                content: "（˚C）";
+            }
+            &.ttem-F:after {
+                content: "（˚F）";
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                width: 25px;
+                height: 4px;
+                top: 50%;
+                .transform-display(translateY(-50%));
+            }
+            &:nth-child(1):before {
+                background: rgba(198, 198, 198, .9);
+            }
+            &:nth-child(2):before {
+                background: rgba(241, 94, 58, .5);
+            }
+        }
+    }
+}
+
+.three-hr-forecast {
+    .table {
+        .signal {
+            img {
+                width: 60px;
+                height: 60px;
+                .flexbox;
+                margin: 0 auto;
+            }
+            &+p {
+                padding-top: 10px;
+                letter-spacing: 1px;
+                color: #555;
+            }
+        }
+        tr {
+            &.rain_wrap {
+                background: @base-ltr-blue;
+                td {
+                    table-layout: fixed;
+                    position: relative;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        .transform-display(translateY(-50%));
+                        width: 1px;
+                        height: 60%;
+                        background: #999;
+                    }
+                    &:last-child:after {
+                        display: none;
+                    }
+                }
+            }
+            .riseset {
+                .flexbox;
+                .flex(column,
+                nowrap);
+                >i {
+                    font-size: @md-font-size;
+                    color: @base-gray;
+                }
+                span {
+                    i {
+                        padding-right: 5px;
+                    }
+                }
+            }
+            &.wind-wrap {
+                background: #fff;
+            }
+            &.uvi_wrap {
+                background: @base-lt-gray;
+                td>span {
+                    .flexbox;
+                    .flex(row,
+                    nowrap);
+                    .align-item(center,
+                    center);
+                    b,
+                    i {
+                        width: 100%;
+                    }
+                    b {
+                        font-weight: normal;
+                    }
+                }
+            }
+            &.data-title {
+                .h4 {
+                    font-size: @xs-font-size;
+                    color: #555;
+                    text-shadow: none;
+                    font-weight: normal;
+                }
+            }
+            td {
+                .icon-umbrella {
+                    display: inline-block;
+                    padding-bottom: 6px;
+                    font-size: @sm-font-size;
+                    color: @base-blue;
+                }
+                .icon-cwb-Ultraviolet-radiation2 {
+                    display: inline-block;
+                    font-size: @md-font-size + .4;
+                    &.uvi_0-2 {
+                        color: @base-green;
+                    }
+                    &.uvi_3-5 {
+                        color: @base-yellow;
+                    }
+                    &.uvi_6-7 {
+                        color: @base-orange;
+                    }
+                    &.uvi_8-10 {
+                        color: @base-red;
+                    }
+                    &.uvi_11 {
+                        color: @base-purple;
+                    }
+                }
+                .wind-block{
+                    .wind-rose-icon();
+                }
+                .rainfall {
+                    width: 50px;
+                }
+            }
+        }
+        thead tr th {
+            width: 120px;
+            border-right: 1px solid rgba(255, 255, 255, .2);
+            &:last-child {
+                border-right: none;
+            }
+            span {
+                color: #fff;
+                font-weight: 200;
+                white-space: nowrap;
+                width: 110px;
+                display: block;
+            }
+        }
+    }
+    h4 {
+        font-size: @xs-font-size;
+        color: #555;
+        &.tem-red {
+            color: @base-dk-orange!important;
+        }
+    }
+    p{
+        text-align: center;
+    }
+}
+
+.padding-top-15 {
+    padding-top: 15px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.tab-sports {
+    .tab-content {
+        background: transparent;
+        padding: 0;
+        border: 1px solid transparent;
+    }
+    .nav-stacked>li+li {
+        margin-top: 0;
+    }
+    .nav-pills li a:hover,
+    .nav-pills li.active a {
+        background: @base-blue;
+        border: none;
+        border-bottom: 1px solid @base-dk-blue;
+    }
+    .nav-pills li a {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 0;
+        padding: 10px 5px;
+    }
+}
+@media (min-width:1440px){
+    .sevenDaysReport{
+        .table{
+            thead{
+                td,th{
+                    width: calc(1440px / 7);
+                }
+            }
+        }
+    }
+}
+@media (max-width:640px) {
+    .tidal-chart-wrap .chart_top {
+        // .xAxis {
+        //     .flex(column,wrap);
+        //     max-height: 350px;
+        //
+        //     li {
+        //         width: 33%;
+        //     }
+        // }
+        .date {
+            li {
+                .flexbox;
+                .flex(column,
+                nowrap);
+            }
+        }
+    }
+}

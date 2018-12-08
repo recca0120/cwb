@@ -1,0 +1,93 @@
+.tem-C {
+    .transition-animate(all .3s ease-in-out);
+    display: block;
+    position: relative;
+    opacity: 1;
+
+    &.no-unit {
+        &:after {
+            display: none;
+        }
+    }
+
+    &:after {
+        content: "˚C";
+    }
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    &.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        display: none!important;
+    }
+}
+
+.tem-F {
+    .transition-animate(all .3s ease-in-out);
+    display: block;
+    position: relative;
+    opacity: 1;
+
+    &.no-unit {
+        &:after {
+            display: none;
+        }
+    }
+
+    &:after {
+        content: "˚F";
+    }
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    &.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        height: 0;
+        display: none!important;
+    }
+}
+
+.wind_1 {
+    .transition-animate(all .3s ease-in-out);
+    display: block;
+    position: relative;
+    opacity: 1;
+
+    &.is-active {
+        opacity: 1;
+        display: block;
+    }
+
+    &.is-hidden {
+        opacity: 0;
+        display: none!important;
+    }
+}
+
+.wind_2 {
+    .transition-animate(all .3s ease-in-out);
+    display: block;
+    position: relative;
+    opacity: 1;
+
+    &.is-active {
+        opacity: 1;
+        display: block;
+    }
+
+    &.is-hidden {
+        opacity: 0;
+        display: none!important;
+    }
+}

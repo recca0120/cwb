@@ -1,0 +1,284 @@
+// ------ 圓角
+.border-radius (@radius) {
+    -ms-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+
+// ------ 漸層
+.gradient-effect(@from, @to) {
+    background: -webkit-linear-gradient(@from, @to);
+    background: -moz-linear-gradient(@from, @to);
+    background: -ms-linear-gradient(@from, @to);
+    background: -o-linear-gradient(@from, @to);
+    background: linear-gradient(@from, @to);
+    -pie-background: linear-gradient(@from, @to);
+}
+
+// ------ 區塊陰影
+.shadow(@shadow) {
+    -webkit-box-shadow: (@shadow);
+    -ms-box-shadow: (@shadow);
+    box-shadow: (@shadow);
+}
+
+// ------ 漸變時間差
+.transition-animate(@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    -ms-transform: @transition;
+    transition: @transition;
+}
+
+// ------ 變形屬性
+.transform-display(@transform) {
+    -moz-transform: (@transform);
+    -webkit-transform: (@transform);
+    -o-transform: (@transform);
+    -ms-transform: (@transform);
+    transform: (@transform);
+}
+
+.flexbox {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.inline-flex {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+.flex(@direction, @wrap) {
+    -webkit-flex-direction: @direction;
+    -moz-flex-direction: @direction;
+    -ms-flex-direction: @direction;
+    -o-flex-direction: @direction;
+    flex-direction: @direction;
+    -webkit-flex-wrap: @wrap;
+    -moz-flex-wrap: @wrap;
+    -ms-flex-wrap: @wrap;
+    -o-flex-wrap: @wrap;
+    flex-wrap: @wrap;
+}
+
+.flex-basis(@value1, @value2, @value3) {
+    -webkit-box-flex: @value1;
+    -webkit-flex: @value1 @value2 @value3;
+    -moz-box-flex: @value1;
+    -moz-flex: @value1 @value2 @value3;
+    -ms-flex: @value1 @value2 @value3;
+    flex: @value1 @value2 @value3;
+}
+
+.keyframes(@name,@arguments) {
+    @-moz-keyframes @name {
+        @arguments();
+    }
+    @-webkit-keyframes @name {
+        @arguments();
+    }
+    @-o-keyframes @name {
+        @arguments();
+    }
+    @keyframes @name {
+        @arguments();
+    }
+}
+
+.animation(@arguments) {
+    -webkit-animation: @arguments;
+    -moz-animation: @arguments;
+    -o-animation: @arguments;
+    animation: @arguments;
+}
+
+.justify-content(@layout-position, @IE-position) {
+    -webkit-justify-content: @layout-position;
+    -moz-justify-content: @layout-position;
+    -o-flex-justify-content: @layout-position;
+    -ms-flex-pack: @IE-position;
+    justify-content: @layout-position;
+}
+
+.align-item(@layout-align, @IE-align) {
+    -webkit-box-align: @IE-align;
+    -webkit-align-items: @layout-align;
+    -ms-flex-align: @IE-align;
+    align-items: @layout-align;
+}
+
+.border-image(@source, @slice, @repeat) {
+    -webkit-border-image-source: @source;
+    -moz-border-image-source: @source;
+    border-image-source: @source;
+    -webkit-border-image-slice: @slice;
+    -moz-border-image-slice: @slice;
+    border-image-slice: @slice;
+    -webkit-border-image-repeat: @repeat;
+    -moz-border-image-repeat: @repeat;
+    border-image-repeat: @repeat;
+}
+
+.appearance-style(@appearance) {
+    appearance: @appearance;
+    -moz-appearance: @appearance;
+    -webkit-appearance: @appearance;
+}
+
+// ----------------   IE10 替代數值 ----------------
+// flex-start ----> start
+// flex-end ----> end
+// center ----> center
+// space-between ----> justify
+// space-around ----> distribute
+// stretch
+*:link,
+*:visited,
+*:hover,
+*:active,
+*:focus,
+* {
+    -o-transition: background-color .2s linear, border-color .1s linear;
+    -webkit-transition: background-color .2s linear, border-color .1s linear;
+    -moz-transition: background-color .2s linear, border-color .1s linear;
+    transition: background-color .2s linear, border-color .1s linear;
+}
+
+// ------ 氣象局主色 (lt: 亮, dk:暗)
+@base-lt-blue: #187ac8;
+@base-ltr-blue: #e4f3fe;
+@base-lt2-blue: #effcfe;
+@base-lt3-blue: #87c0ed;
+@base-lt4-blue: #afddff;
+// @base-lt5-blue: #e1f2ff;
+@base-blue: #1a67b1;
+
+@base-blue-3: #60c5f9;
+@base-dk-blue: #0959a8;
+@base-dkr-blue: #4774b8;
+@base-dk2-blue: #0959a8;
+@base-dk3-blue: #13508c;
+// ------ 氣象局輔助色
+@base-sea: #0f838c;
+@base-lt-sea: #42a1ae;
+@base-lt2-sea: #7fd9e4;
+@base-yellow: #FFBA2C;
+@base-lt-yellow: #ffeb3b;
+@base-red: #ea1904;
+@base-lt-red: #e2574c;
+@base-dk-red: #cd2500;
+@base-pink: #eb619f;
+@base-lt-pink: #fef0f0;
+@base-green: #a7cd20;
+@base-lt-green: #6cc972;
+@abse-dk-green: #257d2a;
+@base-orange: #f39800;
+@base-dk-orange: #d63801;
+@base-purple: #b34fa2;
+@base-lt-gray: #f9f9f9;
+@base-gray: #dcdcdc;
+.bg-base-gray {
+    background-color: @base-lt-gray!important;
+}
+
+.clr-gray {
+    color: @base-gray!important;
+}
+
+.clr-dk-gray {
+    color: @base-dk-gray!important;
+}
+
+@base-dk-gray: #767676;
+@base-dker-gray: #1b1b1b;
+@fb-blue: #3b5998;
+@line-green: #00c300;
+// ------ 全網字級定義
+@xs-font-size: 1rem;
+// ---- 內文
+@sm-font-size: 1.4rem;
+// ---- 副標
+@md-font-size: 1.8rem;
+// ---- 主標
+// ------ 自定義FontAwesome
+@icon: FontAwesome;
+@icon_2: icomoon;
+.fa-icon(@num, @font-face) {
+    content: @num;
+    font-family: @font-face;
+}
+
+
+
+
+/* ------- 標頭設計(字級,字距,顏色) ------- */
+
+.heading-title(@font-size, @letter-spacing, @color) {
+    font-size: @font-size;
+    letter-spacing: @letter-spacing;
+    color: @color;
+}
+
+
+
+
+/* ------- box-madel ------- */
+
+[class^="fa-"],
+[class*=" fa-"] {
+    font-family: @icon !important;
+}
+
+[data-href] {
+    cursor: pointer;
+}
+
+// @import url(https://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+// @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+html {
+    font-size: 12pt;
+}
+
+body {
+    font-family: arial,'Noto Sans','微軟正黑體', sans-serif;
+    // font-family: arial,'Noto Sans TC','微軟正黑體', sans-serif;
+    // font-family: 'cwTeXHei', sans-serif!important; // font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; // ---舊css字體
+    font-size: @xs-font-size;
+}
+
+p {
+    text-align: justify;
+}
+
+blockquote,
+blockquote:hover {
+    border-color: transparent;
+}
+
+img {
+    margin: 0 auto;
+}
+
+a {
+    position: relative;
+}
+
+a,
+select {
+     &:focus {
+        .shadow(3px 3px 20px 0px rgba(100, 100, 100, 0.6));
+    }
+}
+br{
+    font-family: '微軟正黑體';
+}

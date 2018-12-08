@@ -1,0 +1,360 @@
+#theme-4 {
+  width: 600px;
+  margin: 0 auto;
+
+  &:hover {
+    svg .st0 {
+      opacity: 0.6;
+    }
+
+    svg .st1 {
+      stroke: @base-lt-blue;
+    }
+  }
+
+  svg {
+    .st0 {
+      fill: #AAD6E3;
+      stroke: #FFFFFF;
+      stroke-width: 1px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+
+    .st1 {
+      fill: none;
+      stroke: #eee;
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+  }
+
+  .blueroute {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    & > li {
+      position: absolute;
+
+      &.yellow-dot a {
+        &::after,
+        &::before {
+          background: rgba(121,81,0, .3);
+        }
+
+        span {
+          color: darken(@base-yellow,35%);
+        }
+
+        i {
+          background-color: darken(@base-yellow,35%);
+        }
+      }
+
+      &.orange-dot a {
+        &::after,
+        &::before {
+          background: rgba(241,94,58,.3);
+        }
+
+        span {
+          color: @base-dk-orange;
+        }
+
+        i {
+          background-color: @base-dk-orange;
+        }
+      }
+
+      &.is_show {
+        & > a {
+          &:after {
+            width: 60px;
+            height: 60px;
+            transition-delay: 0.1s;
+            opacity: 1;
+          }
+
+          &:before {
+            width: 70px;
+            height: 70px;
+            opacity: 1;
+          }
+
+          span {
+            color: #222;
+          }
+
+          i {
+            .border-radius(4px 4px 0 0);
+          }
+        }
+
+        & > ol {
+          pointer-events: auto;
+          opacity: 1;
+        }
+      }
+
+      & > ol {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 130px;
+        background: rgba(255, 255, 255, .85);
+        z-index: 10;
+        .border-radius(0 2px 2px 2px);
+        left: 0;
+        border: 1px solid @base-dkr-blue;
+        // .transform-display(translateX(-50%));
+        .transition-animate(all .3s ease-in-out);
+        pointer-events: none;
+        opacity: 0;
+
+        & > li {
+          text-align: center;
+
+          & > a {
+            padding: 4px 0;
+            display: block;
+            font-size: @xs-font-size - .1;
+            letter-spacing: 2px;
+            color: @base-dkr-blue;
+            .transition-animate(all .3s ease-in-out);
+
+            &:hover {
+              opacity: 0.8;
+              background-color: @base-dkr-blue;
+              color: #fff;
+            }
+            &.c-yellow{
+              color: darken(@base-yellow,35%);
+              &:hover {
+                background-color: darken(@base-yellow,35%);
+                color: #fff;
+              }
+            }
+            &.c-orange{
+              color: @base-dk-orange;
+              &:hover {
+                background-color: @base-dk-orange;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+
+      & > a {
+        .flexbox;
+        .flex(column,wrap);
+        .justify-content(center,center);
+        .align-item(center,center);
+        text-align: center;
+        position: relative;
+        z-index: 1;
+
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          .transform-display(translateX(-50%) translateY(-50%));
+          width: 10px;
+          height: 10px;
+          .border-radius(50%);
+          .transition-animate(all .3s ease-in-out);
+          background: rgba(60,143,209,.3);
+          z-index: -1;
+          opacity: 0;
+        }
+
+        i {
+          .transition-animate(all .3s ease-in-out);
+          width: 30px;
+          height: 30px;
+          padding: 4px;
+          .border-radius(50%);
+          background-color: @base-dkr-blue;
+          color: @base-ltr-blue;
+          position: relative;
+          display: block;
+
+          &:before {
+            transform-origin: center center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .transform-display(translateX(-50%) translateY(-50%));
+            font-size: @xs-font-size + .3;
+          }
+        }
+
+        span {
+          display: block;
+          font-size: @xs-font-size - .1;
+          font-weight: bold;
+          letter-spacing: 1px;
+          color: #555;
+        }
+      }
+      // ------彭佳嶼
+      &#pPengjiayu_S {
+        top: 8%;
+        left: 77%;
+      }
+      // ------石垣島
+      &#pShiyuandao_S {
+        top: 25%;
+        left: 84%;
+      }
+      // ------ 基隆
+      &#pKeelung_S {
+        top: 12.5%;
+        left: 66%;
+      }
+      // ------ 龍洞
+      &#pLongdong_S {
+        top: 14%;
+        left: 72%;
+      }
+      // ------ 龜山島
+      &#pGuishandao_S {
+        top: 21%;
+        left: 75%;
+      }
+      // ------ 烏石
+      &#pWushi_S {
+        top: 21%;
+        left: 68%;
+      }
+      // ------ 蘇澳
+      &#pSuao_S {
+        top: 28%;
+        left: 71%;
+      }
+      // ------ 花蓮
+      &#pHualien_S {
+        top: 37%;
+        left: 66%;
+      }
+      // ------ 綠島
+      &#pLudao_S {
+        top: 64.5%;
+        left: 63%;
+      }
+      // ------ 蘭嶼
+      &#pLanyu_S {
+        top: 75%;
+        left: 61%;
+      }
+      // ------ 台東
+      &#pTaitung_S {
+        top: 62.5%;
+        left: 53%;
+      }
+      // ------ 後壁湖
+      &#pHoubihu_S {
+        top: 80%;
+        left: 43%;
+      }
+      // ------ 東港
+      &#pDonggang_S {
+        top: 69.5%;
+        left: 38%;
+      }
+      // ------ 小琉球
+      &#pLiuqiu_S {
+        top: 74%;
+        left: 30%;
+      }
+      // ------ 高雄
+      &#pKaohsiung_S {
+        top: 65.5%;
+        left: 31%;
+      }
+      // ------ 安平港
+      &#pAnping_S {
+        top: 58%;
+        left: 29%;
+      }
+      // ------ 東吉
+      &#pDongjidao_S {
+        top: 56%;
+        left: 17%;
+      }
+      // ------ 布袋港
+      &#pBudai_S {
+        top: 51%;
+        left: 29%;
+      }
+      // ------ 馬公
+      &#pMagong_S {
+        top: 47%;
+        left: 12%;
+      }
+      // ------ 台中
+      &#pTaichung_S {
+        top: 31%;
+        left: 38%;
+      }
+      // ------ 金門
+      &#pKinmen_S {
+        top: 31.5%;
+        left: 12%;
+      }
+      // ------ 石井
+      &#pShijing_S {
+        top: 24%;
+        left: 15%;
+      }
+      // ------ 五通
+      &#pWutong_S {
+        top: 26%;
+        left: 2%;
+      }
+      // ------ 平潭
+      &#pPingtan_S {
+        top: 8.5%;
+        left: 9%;
+      }
+      // ------ 台北港
+      &#pTaipei_S {
+        top: 15.5%;
+        left: 58%;
+      }
+      // ------ 台州
+      &#pTaizhou_S {
+        top: 1%;
+        left: 52%;
+      }
+      // ------ 馬祖
+      &#pMatsu_S {
+        top: 1%;
+        left: 38%;
+      }
+      // ------ 馬尾
+      &#pMawei_S {
+        top: 4%;
+        left: 30%;
+      }
+    }
+  }
+}
+@media (max-width:1200px) {
+  #theme-4 .blueroute > li a i {
+    width: 24px;
+    height: 24px;
+  }
+}

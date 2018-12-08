@@ -1,0 +1,132 @@
+.marker,
+.zoomHolder img {
+	display: block;
+}
+
+.fullscreenToggle,
+.zoomIn,
+.zoomOut {
+	// background: url("https://0.s3.envato.com/files/203121821/assets/pz_sheet.png") no-repeat;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	z-index: 100;
+	margin: 5px;
+	.border-radius(100%);
+	// border: 4px solid @base-lt-blue;
+	background: @base-lt-blue;
+	position: relative;
+	opacity: .8;
+	.transition-animate(all .3s ease-in-out);
+	&::before{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		color: #fff;
+		font-size: @sm-font-size;
+		.transform-display(translateY(-50%) translateX(-50%));
+	}
+	&:hover{
+		opacity: 1;
+	}
+}
+
+.zoomIn {
+	background-position: 0 0;
+	&::before{
+		.fa-icon("\f067",@icon);
+	}
+}
+
+.zoomOut {
+	background-position: -30px 0;
+	&::before{
+		.fa-icon("\f068",@icon);
+	}
+}
+
+.fullscreenToggle {
+	background-position: -60px 0;
+	cursor: pointer;
+}
+
+.zoomIn.on,
+.zoomOut.on {
+	// opacity: 1;
+	// -moz-opacity: 1;
+	// -khtml-opacity: 1;
+	cursor: pointer;
+}
+
+.zoomIn.off,
+.zoomOut.off {
+	opacity: 0.3;
+	-moz-opacity: 0.3;
+	-khtml-opacity: 0.3;
+	cursor: auto;
+}
+
+.controlHolder {
+	// border-radius: 5px;
+	// background: rgba(0,0,0,.4);
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+	padding: 5px;
+	z-index: 100;
+}
+
+.fullscreenDiv,
+.marker {
+	left: 0!important;
+	top: 0!important;
+}
+
+.fullscreenToggle.on {
+	background-position: -90px 0;
+}
+
+.fullscreenToggle.off {
+	background-position: -60px 0;
+}
+
+.fullscreenDiv {
+	width: auto!important;
+	height: auto!important;
+	right: 0!important;
+	bottom: 0!important;
+	position: absolute!important;
+	background: #FFF;
+	z-index: 999999;
+	overflow: hidden;
+}
+
+.zoomHolder {
+	width: 100%;
+	height: auto;
+	// height: 560px;
+	position: relative;
+	overflow: hidden;
+	object-fit: cover;
+}
+.zoomtime{
+	display: block;
+	background: #555;
+	color: #fff;
+	text-align: center;
+	padding: 5px;
+}
+.marker {
+	position: absolute!important;
+	bottom: auto!important;
+	right: auto!important;
+}
+/*bob */
+
+@media (max-width:992px) {
+	.zoomHolder{height: 400px;}
+
+}

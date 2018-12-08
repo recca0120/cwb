@@ -1,0 +1,530 @@
+.UVI-icon-list {
+    display: block;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    i {
+        font-size: @md-font-size + .7;
+        position: relative;
+        display: block;
+        text-align: center;
+        &>span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .transform-display(translateX(-50%) translateY(-50%));
+            font-size: @xs-font-size - .1;
+            font-weight: bold;
+            color: #222;
+        }
+        &.icon-cwb-UVI {
+            font-family: icomoon;
+            &.UVI-0to2 {
+                color: @base-green;
+            }
+            &.UVI-3to5 {
+                color: @base-yellow;
+            }
+            &.UVI-6to7 {
+                color: @base-orange;
+            }
+            &.UVI-8to10 {
+                color: @base-red;
+            }
+            &.UVI-11up {
+                color: @base-purple;
+            }
+            &:before {
+                content: "\e918";
+            }
+        }
+    }
+}
+
+.UVI-station {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    &.weather_data {
+        &>span {
+            width: auto;
+            height: auto;
+            background: none;
+            .transform-display(translateX(-50%) translateY(-50%));
+            &:after {
+                display: none;
+            }
+            &>.UVI-icon {
+                position: static;
+            }
+        }
+    }
+    &>span {
+        position: absolute;
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: @base-red;
+        .border-radius(100%);
+        &>.UVI-icon {
+            cursor: pointer;
+            .flexbox;
+            .flex(row, wrap);
+            .justify-content(center, center);
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            z-index: 1;
+            padding: 5px;
+            margin: 0;
+            .border-radius(100%);
+            background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=0);
+            i {
+                order: 1;
+                font-size: @md-font-size + 1.2;
+                position: relative;
+                display: block;
+                text-align: center;
+                &>span {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    .transform-display(translateX(-50%) translateY(-50%));
+                    font-size: @xs-font-size + .1;
+                    font-weight: bold;
+                    color: #222;
+                    // color: #fff;
+                    text-shadow: #fff 0px 2px, #fff 2px 0px, #fff -2px 0px, #fff 0px -2px, #fff -1.4px -1.4px, #fff 1.4px 1.4px, #fff 1.4px -1.4px, #fff -1.4px 1.4px;
+                }
+                &.icon-cwb-UVI {
+                    font-family: icomoon;
+                    &.UVI-0to2 {
+                        color: @base-green;
+                        // color: #078a10;
+                    }
+                    &.UVI-3to5 {
+                        color: @base-yellow;
+                    }
+                    &.UVI-6to7 {
+                        color: @base-orange;
+                    }
+                    &.UVI-8to10 {
+                        color: @base-red;
+                    }
+                    &.UVI-11up {
+                        color: @base-purple;
+                    }
+                    &:before {
+                        content: "\e918";
+                    }
+                }
+            }
+            span {
+                order: 2;
+                margin: 0;
+                display: block;
+                text-align: center;
+                letter-spacing: 2px;
+                font-size: @xs-font-size - .1;
+                color: #222;
+            }
+        }
+        &.is_active:after {
+            background-color: rgba(255, 255, 255, .5);
+            width: 15px;
+            height: 15px;
+            border: 1px solid #fff;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .transition-animate(all .3s ease-in-out);
+            .transform-display(translateX(-50%) translateY(-50%));
+            width: 3px;
+            height: 3px;
+            background-color: #fff;
+            .border-radius(100%);
+            z-index: 0;
+        }
+        &[itemprop="南投"],
+        &[itemprop="塔塔加"],
+        &[itemprop="屏東"],
+        &[itemprop="彰化"],
+        &[itemprop="斗六"],
+        &[itemprop="朴子"],
+        &[itemprop="板橋"],
+        &[itemprop="桃園"],
+        &[itemprop="橋頭"],
+        &[itemprop="沙鹿"],
+        &[itemprop="淡水"],
+        &[itemprop="苗栗"],
+        &[itemprop="阿里山"] {
+            background-color: @base-dk-blue;
+        }
+        &[itemprop="基隆"] {
+            top: 10.2%;
+            left: 81%;
+            &>a {
+                top: -50px;
+                left: 10px;
+            }
+        }
+        &[itemprop="鞍部"] {
+            top: 8%;
+            left: 76.5%;
+            &>a {
+                top: -69px;
+                left: -10px;
+            }
+        }
+        &[itemprop="淡水"] {
+            top: 8.5%;
+            left: 72.5%;
+            &>a {
+                top: -69px;
+                left: -42px;
+            }
+        }
+        &[itemprop="台北"] {
+            top: 11%;
+            left: 74%;
+            &>a {
+                top: -70px;
+                left: -98px;
+            }
+        }
+        &[itemprop="板橋"] {
+            top: 14%;
+            left: 74%;
+            &>a {
+                top: -14px;
+                left: 15px;
+            }
+        }
+        &[itemprop="桃園"] {
+            top: 14%;
+            left: 68%;
+            &>a {
+                top: 14px;
+                left: -23px;
+            }
+        }
+        &[itemprop="新屋"] {
+            top: 13%;
+            left: 59%;
+            &>a {
+                top: -61px;
+                left: -54px;
+            }
+        }
+        &[itemprop="新竹"] {
+            top: 18%;
+            left: 59%;
+            &>a {
+                top: -43px;
+                left: -61px;
+            }
+        }
+        &[itemprop="苗栗"] {
+            top: 25.5%;
+            left: 52%;
+            &>a {
+                top: -68px;
+                left: -65px;
+            }
+        }
+        &[itemprop="沙鹿"] {
+            top: 32%;
+            left: 44%;
+            &>a {
+                top: -62px;
+                left: -43px;
+            }
+        }
+        &[itemprop="台中"] {
+            top: 36%;
+            left: 47%;
+            &>a {
+                top: -34px;
+                left: -100px;
+            }
+        }
+        &[itemprop="彰化"] {
+            top: 39%;
+            left: 41%;
+            &>a {
+                top: 5px;
+                left: -61px;
+            }
+        }
+        &[itemprop="南投"] {
+            top: 42%;
+            left: 50%;
+            &>a {
+                top: 10px;
+                left: 10px;
+            }
+        }
+        &[itemprop="日月潭"] {
+            top: 40.5%;
+            left: 59%;
+            &>a {
+                top: -72px;
+                left: -24px;
+            }
+        }
+        &[itemprop="阿里山"] {
+            top: 54.5%;
+            left: 53%;
+            &>a {
+                top: -40px;
+                left: -61px;
+            }
+        }
+        &[itemprop="玉山"] {
+            top: 55%;
+            left: 58%;
+            &>a {
+                top: -42px;
+                left: 11px;
+            }
+        }
+        &[itemprop="塔塔加"] {
+            top: 56%;
+            left: 55%;
+            &>a {
+                top: 16px;
+                left: -23px;
+            }
+        }
+        &[itemprop="斗六"] {
+            top: 48%;
+            left: 43%;
+            &>a {
+                top: -61px;
+                left: -23px;
+            }
+        }
+        &[itemprop="嘉義"] {
+            top: 54%;
+            left: 41%;
+            &>a {
+                top: -55px;
+                left: -60px;
+            }
+        }
+        &[itemprop="朴子"] {
+            top: 55.5%;
+            left: 32%;
+            &>a {
+                top: -55px;
+                left: -60px;
+            }
+        }
+        &[itemprop="新營"] {
+            top: 59%;
+            left: 36%;
+            &>a {
+                top: -13px;
+                left: -67px;
+            }
+        }
+        &[itemprop="台南"] {
+            top: 66%;
+            left: 33%;
+            &>a {
+                top: -8px;
+                left: -63px;
+            }
+        }
+        &[itemprop="橋頭"] {
+            top: 72%;
+            left: 34%;
+            &>a {
+                top: 3px;
+                left: -62px;
+            }
+        }
+        &[itemprop="高雄"] {
+            top: 77.5%;
+            left: 35%;
+            &>a {
+                top: 19px;
+                left: -53px;
+            }
+        }
+        &[itemprop="屏東"] {
+            top: 75%;
+            left: 42%;
+            &>a {
+                top: 13px;
+                left: -1px;
+            }
+        }
+        &[itemprop="恆春"] {
+            top: 92%;
+            left: 51%;
+            &>a {
+                top: -24px;
+                left: 29px;
+            }
+        }
+        &[itemprop="台東"] {
+            top: 73%;
+            left: 62%;
+            &>a {
+                top: -27px;
+                left: 14px;
+            }
+        }
+        &[itemprop="成功"] {
+            top: 64%;
+            left: 70%;
+            &>a {
+                top: -27px;
+                left: 14px;
+            }
+        }
+        &[itemprop="蘭嶼"] {
+            top: 89%;
+            left: 73%;
+            &>a {
+                top: -63px;
+                left: -57px;
+            }
+        }
+        &[itemprop="花蓮"] {
+            top: 36%;
+            left: 78%;
+            &>a {
+                top: -7px;
+                left: 17px;
+            }
+        }
+        &[itemprop="宜蘭"] {
+            top: 22%;
+            left: 81%;
+            &>a {
+                top: -7px;
+                left: 17px;
+            }
+        }
+        &[itemprop="馬祖"] {
+            top: 13%;
+            left: 13%;
+            &>a {
+                top: -73px;
+                left: -29px;
+            }
+        }
+        &[itemprop="金門"] {
+            top: 33%;
+            left: 9%;
+            &>a {
+                top: -79px;
+                left: -9px;
+            }
+        }
+        &[itemprop="澎湖"] {
+            top: 52%;
+            left: 9%;
+            &>a {
+                top: -85px;
+                left: 1px;
+            }
+        } //--------基隆市
+        &[itemprop='KLU'] {
+            left: 88%;
+            top: 10%;
+        } //--------新北市
+        &[itemprop='NTPC'] {
+            left: 76%;
+            top: 4%;
+        } //--------台北市
+        &[itemprop='TPE'] {
+            left: 72%;
+            top: 20%;
+        } //--------桃園市
+        &[itemprop='TYC'] {
+            left: 64%;
+            top: 5%;
+        } //--------新竹縣
+        &[itemprop='HSH'] {
+            left: 61%;
+            top: 28%;
+        } //--------新竹市
+        &[itemprop='HSC'] {
+            left: 53%;
+            top: 13%;
+        } //--------苗栗縣
+        &[itemprop='MAC'] {
+            left: 45%;
+            top: 22%;
+        } //--------台中市
+        &[itemprop='TXG'] {
+            left: 35%;
+            top: 28%;
+        } //--------南投縣
+        &[itemprop='NTO'] {
+            left: 55%;
+            top: 46%;
+        } //--------彰化縣
+        &[itemprop='CWH'] {
+            left: 30%;
+            top: 38%;
+        } //--------雲林縣
+        &[itemprop='YUN'] {
+            left: 25%;
+            top: 49%;
+        } //--------嘉義縣
+        &[itemprop='CHY'] {
+            left: 22%;
+            top: 60%;
+        } //--------嘉義市
+        &[itemprop='CYI'] {
+            left: 49%;
+            top: 57%;
+        } //--------台南市
+        &[itemprop='TNN'] {
+            left: 28%;
+            top: 71%;
+        } //--------高雄市
+        &[itemprop='KHH'] {
+            left: 30%;
+            top: 84%;
+        } //--------屏東縣
+        &[itemprop='PCH'] {
+            left: 45%;
+            top: 91%;
+        } //--------花蓮縣
+        &[itemprop='HWA'] {
+            left: 78%;
+            top: 47%;
+        } //--------臺東縣
+        &[itemprop='TTT'] {
+            left: 61%;
+            top: 80%;
+        } //--------宜蘭縣
+        &[itemprop='ILN'] {
+            left: 85%;
+            top: 28%;
+        } //--------澎湖縣
+        &[itemprop='PEH'] {
+            left: 6%;
+            top: 59%;
+        } //--------金門縣
+        &[itemprop='KMN'] {
+            left: 6%;
+            top: 40%;
+        } //--------連江縣
+        &[itemprop='LNN'] {
+            left: 18%;
+            top: 20%;
+        }
+    }
+}

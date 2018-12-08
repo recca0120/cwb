@@ -1,0 +1,147 @@
+#theme-7 {
+  // 點位
+  #dots {
+    position: absolute;
+  }
+
+  .dot {
+    fill: #0f82e4;
+    stroke: none;
+  }
+  //end  點位
+  g.active path {
+    fill: @base-blue;
+
+    &.hakka-zone {
+      fill: @base-dk-blue;
+      stroke: #fff;
+    }
+  }
+
+  path {
+    fill: @base-lt3-blue;
+    stroke: #fff;
+  }
+
+  .hakka-zone {
+    fill: @base-lt2-sea;
+    stroke: #fff;
+  }
+  & ~ .tags {
+    display: block;
+    margin-top: 50px;
+    font-size: @xs-font-size;
+    letter-spacing: 1px;
+    position: relative;
+    padding-left: 40px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 25px;
+      height: 10px;
+      .transform-display(translateY(-50%));
+      background-color: @base-lt2-sea;
+    }
+  }
+  ~ .tags-2{
+    display: block;
+    font-size: @xs-font-size;
+    letter-spacing: 1px;
+    position: relative;
+    padding-left: 40px;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      width: 13px;
+      height: 13px;
+      .border-radius(100%);
+      .transform-display(translateY(-50%));
+      background-color: #0f82e4;
+    }
+  }
+
+  .weather_data {
+    .icon_zone {
+      //--------新北市
+      &[name='C65'] {
+        left: 90%;
+        top: 1%;
+      }
+      //--------桃園市
+      &[name='C68'] {
+        left: 53%;
+        top: 0;
+      }
+      //--------新竹縣
+      &[name='C10004'] {
+        left: 63%;
+        top: 25%;
+      }
+      //--------新竹市
+      &[name='C10018'] {
+        left: 37%;
+        top: 2%;
+      }
+      //--------苗栗縣
+      &[name='C10005'] {
+        left: 29%;
+        top: 14%;
+      }
+      //--------台中市
+      &[name='C66'] {
+        left: 18%;
+        top: 26%;
+      }
+      //--------南投縣
+      &[name='C10008'] {
+        left: 55%;
+        top: 46%;
+      }
+      //--------彰化縣
+      &[name='C10007'] {
+        left: 5%;
+        top: 35%;
+      }
+      //--------雲林縣
+      &[name='C10009'] {
+        left: 2%;
+        top: 49%;
+      }
+      //--------台南市
+      &[name='C67'] {
+        left: 0;
+        top: 64%;
+      }
+      //--------高雄市
+      &[name='C64'] {
+        left: 10%;
+        top: 78%;
+      }
+      //--------屏東縣
+      &[name='C10013'] {
+        left: 24%;
+        top: 91%;
+      }
+      //--------花蓮縣
+      &[name='C10015'] {
+        left: 78%;
+        top: 47%;
+      }
+      //--------臺東縣
+      &[name='C10014'] {
+        left: 61%;
+        top: 80%;
+      }
+      //--------宜蘭縣
+      &[name='C10002'] {
+        left: 86%;
+        top: 20%;
+      }
+    }
+  }
+}

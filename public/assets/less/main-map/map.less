@@ -1,0 +1,372 @@
+.map_theme {
+    position: relative;
+    z-index: 1;
+    .weather_data {
+        margin: 15px 0;
+    }
+    .shadow {
+        fill: #f1f1f1!important;
+        .transform-display(translateX(2px) translateY(2px));
+    }
+    .link_to_page {
+        position: absolute;
+        z-index: 2;
+        pointer-events: none;
+        path {
+            fill: @base-sea!important;
+            opacity: 0.4;
+            pointer-events: auto;
+            &:hover {
+                fill: @base-lt-sea!important;
+                opacity: 0.7;
+            }
+        }
+    }
+    g,
+    path {
+        .transition-animate(all .3s ease-in-out);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    .weather_data {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        .icon_zone {
+            display: block;
+            position: absolute;
+            .transform-display(translateX(-50%) translateY(-50%));
+            .transition-animate(all .3s ease-in-out);
+            .border-radius(4px);
+            padding: 6px 10px;
+            background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=0);
+            color: #555;
+            &:hover {
+                background: #fcffbd;
+                z-index: 9;
+            }
+            img {
+                width: 40px;
+                height: 40px;
+                display: block;
+                margin: 0 auto;
+            }
+            span {
+                display: block;
+                text-align: center;
+                font-size: @xs-font-size - .1;
+                letter-spacing: 1px;
+                margin-top: 5px;
+                font-weight: bold;
+                min-width: 75px;
+                &+.rain {
+                    margin-top: 0;
+                    position: relative;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    &:before {
+                        color: @base-blue;
+                        .fa-icon( "\e948", @icon_2);
+                    }
+                }
+            }
+            .city {
+                text-align: center;
+                margin: 0;
+                font-size: @xs-font-size - .1;
+                letter-spacing: 1px;
+                color: #555;
+            } //--------基隆市
+            &[name='C10017'] {
+                left: 88%;
+                top: 10%;
+            } //--------新北市
+            &[name='C65'] {
+                left: 76%;
+                top: 4%;
+            } //--------台北市
+            &[name='C63'] {
+                left: 72%;
+                top: 17%;
+            } //--------桃園市
+            &[name='C68'] {
+                left: 64%;
+                top: 5%;
+            } //--------新竹縣
+            &[name='C10004'] {
+                left: 61%;
+                top: 28%;
+            } //--------新竹市
+            &[name='C10018'] {
+                left: 51%;
+                top: 8%;
+            } //--------苗栗縣
+            &[name='C10005'] {
+                left: 48%;
+                top: 22%;
+            } //--------台中市
+            &[name='C66'] {
+                left: 34%;
+                top: 23%;
+            } //--------南投縣
+            &[name='C10008'] {
+                left: 55%;
+                top: 46%;
+            } //--------彰化縣
+            &[name='C10007'] {
+                left: 30%;
+                top: 35%;
+            } //--------雲林縣
+            &[name='C10009'] {
+                left: 24%;
+                top: 48%;
+            } //--------嘉義縣
+            &[name='C10010'] {
+                left: 22%;
+                top: 60%;
+            } //--------嘉義市
+            &[name='C10020'] {
+                left: 49%;
+                top: 57%;
+            } //--------台南市
+            &[name='C67'] {
+                left: 28%;
+                top: 71%;
+            } //--------高雄市
+            &[name='C64'] {
+                left: 30%;
+                top: 84%;
+            } //--------屏東縣
+            &[name='C10013'] {
+                left: 45%;
+                top: 91%;
+            } //--------花蓮縣
+            &[name='C10015'] {
+                left: 78%;
+                top: 47%;
+            } //--------臺東縣
+            &[name='C10014'] {
+                left: 61%;
+                top: 80%;
+            } //--------宜蘭縣
+            &[name='C10002'] {
+                left: 85%;
+                top: 28%;
+            } //--------澎湖縣
+            &[name='C10016'] {
+                left: 6%;
+                top: 59%;
+            } //--------金門縣
+            &[name='C09020'] {
+                left: 6%;
+                top: 40%;
+            } //--------連江縣
+            &[name='C09007'] {
+                left: 18%;
+                top: 20%;
+            }
+        }
+    }
+    .observe_weather_data {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        .icon_zone {
+            display: block;
+            position: absolute;
+            .transform-display(translateX(-50%) translateY(-50%));
+            .transition-animate(all .3s ease-in-out);
+            .border-radius(4px);
+            padding: 5px;
+            background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=0);
+            color: #555;
+            &:hover {
+                background: #fcffbd;
+            }
+            img {
+                width: 40px;
+                height: 40px;
+                display: block;
+                margin: 0 auto;
+            }
+            span.temperature i {
+                color: #555;
+                font-size: @xs-font-size;
+            }
+            span {
+                display: block;
+                text-align: center;
+                font-size: @xs-font-size - .1;
+                letter-spacing: 1px;
+                margin-top: 5px;
+                font-weight: bold;
+                min-width: 75px;
+                &+.rain {
+                    margin-top: 0;
+                    position: relative;
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                    &:before {
+                        color: @base-blue;
+                        .fa-icon( "\e948", @icon_2);
+                    }
+                }
+            }
+            h6 {
+                text-align: center;
+                margin: 0;
+                font-size: @xs-font-size - .1;
+                letter-spacing: 1px;
+                color: #555;
+            } //--------台北
+            &[name='C46692'] {
+                left: 72%;
+                top: 13%;
+            } //--------新竹
+            &[name='C46757'] {
+                left: 61%;
+                top: 28%;
+            } //--------台中
+            &[name='C46749'] {
+                left: 35%;
+                top: 28%;
+            } //--------嘉義
+            &[name='C46748'] {
+                left: 22%;
+                top: 55%;
+            } //--------台南
+            &[name='C46741'] {
+                left: 28%;
+                top: 68%;
+            } //--------高雄
+            &[name='C46744'] {
+                left: 30%;
+                top: 84%;
+            } //--------恆春
+            &[name='C46759'] {
+                left: 45%;
+                top: 91%;
+            } //--------花蓮
+            &[name='C46699'] {
+                left: 78%;
+                top: 47%;
+            } //--------臺東
+            &[name='C46766'] {
+                left: 61%;
+                top: 80%;
+            } //--------宜蘭
+            &[name='C46708'] {
+                left: 85%;
+                top: 28%;
+            } //--------澎湖
+            &[name='C46735'] {
+                left: 6%;
+                top: 59%;
+            } //--------金門
+            &[name='C46711'] {
+                left: 6%;
+                top: 40%;
+            } //--------馬祖
+            &[name='C46799'] {
+                left: 18%;
+                top: 20%;
+            }
+        }
+    }
+    .map-tag {
+        position: absolute;
+        .border-radius(3px);
+        background: rgba(0,0,0,.6);
+        color: #fff;
+        padding: 3px 5px;
+        font-size: @xs-font-size - .3;
+        z-index: 9;
+        display: none;
+        &.active{
+            display: block;
+        }
+    }
+}
+
+.explace {
+    position: absolute;
+    bottom: 10%;
+    width: 200px;
+    z-index: 1;
+    li {
+        margin: 2rem 0;
+    }
+    a {
+        background: @base-sea;
+        color: #fff;
+        .border-radius(.25rem);
+        padding: .625rem;
+        &:hover {
+            opacity: .7;
+        }
+    }
+}
+
+.full_map {
+    width: 100%!important;
+    margin: 0 auto;
+}
+
+.lg_map {
+    width: 850px!important;
+    margin: 0 auto;
+    .weather_data .icon_zone {
+        img {
+            position: static!important;
+            width: 50px!important;
+            height: 50px!important;
+            .transform-display(translateX(0))!important;
+        }
+        span {
+            margin-top: 0 !important;
+        }
+    }
+}
+
+span {
+    &.temperature {
+        font-weight: bold;
+        letter-spacing: 1px;
+        i {
+            font-style: normal;
+            &:first-child {
+                color: @base-blue;
+            }
+            &:last-child {
+                color: @base-red;
+            }
+        }
+    }
+}
+
+@import "../../less/main-map/taiwan/_defaule.less"; //----------------------  函數值
+@import "../../less/main-map/taiwan/_theme-1"; //----------------------  函數值
+@import "../../less/main-map/taiwan/_theme-2"; //----------------------  紫外線
+@import "../../less/main-map/taiwan/_theme-3"; //----------------------  海面
+@import "../../less/main-map/taiwan/_theme-4"; //----------------------  藍色公路
+@import "../../less/main-map/taiwan/_theme-5"; //----------------------  遠洋漁業
+@import "../../less/main-map/taiwan/_theme-6"; //----------------------  原鄉
+@import "../../less/main-map/taiwan/_theme-7"; //----------------------  客莊
+@import "../../less/main-map/taiwan/_UVI_station.less"; //----------------------  函數值
+@media (max-width:992px) {
+    .map_theme {
+        display: none;
+    }
+}

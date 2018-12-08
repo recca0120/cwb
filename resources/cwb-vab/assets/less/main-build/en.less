@@ -1,0 +1,74 @@
+html[lang="en"]{
+	/*header*/
+	.header{
+
+		.topbar{
+			ul{
+			&.loginbar{
+					&>li{
+						&>a{
+							font-size: 0.8rem;
+						}
+					}
+				}
+			}
+		}	
+
+		.navbar-nav{
+			&>li{
+				&>a{
+					font-size: 0.8rem;
+					letter-spacing: 1px;
+				}
+			}
+		}
+
+		.equal-title{
+			span{
+				font-size: 1.2rem;
+			}
+		}	
+
+		.mega-menu{
+			.equal-height{
+				.equal-height-in {
+					h3{
+						.icon-menu-clock{
+							margin-right: 0px;
+						}
+						&>a{
+							font-size: @xs-font-size - .2;
+							font-weight: bold;
+						}
+					}
+					.sublevel-2{
+
+						&>li{
+							&>a{
+								font-size: @xs-font-size - .2;
+							}
+						}
+					}
+					+.equal-height-in{
+						margin-left: 10px;
+					}
+				}
+				
+			}
+		}
+
+		.citytownlink{
+			.menu-tabs {
+				.nav-tabs {
+					&>li{
+						&>a{
+							padding: 6px 12px;
+							font-size: 0.8rem;
+							letter-spacing: 1px;
+						}
+					}
+				}
+			}
+		}		
+	}
+}

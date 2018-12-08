@@ -1,0 +1,345 @@
+.acc-v1.vision_1 {
+    .span_location {
+        background: @base-gray;
+        padding: 5px;
+        font-size: @xs-font-size;
+        letter-spacing: 1px;
+        color: #555;
+        margin: 8px;
+        white-space: nowrap;
+        min-width: 60px;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .panel {
+        box-shadow: none;
+    }
+
+    .panel,
+    .panel+.panel {
+        margin-top: 0;
+        border: none;
+        border-top: 1px solid @base-ltr-blue;
+    }
+
+    .panel:last-child {
+        border-bottom: 1px solid @base-ltr-blue;
+    }
+
+    .panel-default>.panel-heading+.panel-collapse>.panel-body {
+        border-top-color: @base-ltr-blue;
+    }
+
+    .panel-heading a {
+        .heading-title(@xs-font-size + .1, 1px, #555);
+        padding: 10px 0;
+        position: relative;
+
+        &:after {
+            .fa-icon( "\f0d7", @icon);
+            float: right;
+            color: @base-gray;
+            padding-right: 15px;
+        }
+    }
+}
+
+
+
+/* 颱風百問 */
+
+.panel-default.hurricane {
+    box-shadow: none;
+    border: none;
+
+    .panel-heading {
+        border-top: 1px solid #ddd;
+        position: relative;
+
+        a {
+            padding: 15px;
+            color: #777;
+
+            &:hover {
+                color: #ddd;
+            }
+
+            i {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .panel-body {
+        border-top: none;
+
+        p {
+            color: #777;
+        }
+
+        span {
+            color: #4774b8;
+            font-size: .8rem;
+        }
+
+        img {
+            margin-bottom: 10px;
+        }
+
+        .tow-pic {
+            span {
+                display: block;
+                text-align: center;
+            }
+        }
+
+        ol {
+            li {
+                line-height: 2em;
+                padding: 10px 0;
+            }
+        }
+    }
+
+    .accordion-toggle {
+        &:before {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-width: 10px 6px 0 6px;
+            right: 10px;
+            border-color: #777 rgba(255, 255, 255, 0);
+            border-style: solid;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &:hover:before {
+            border-color: #ddd rgba(255, 255, 255, 0);
+        }
+    }
+}
+
+
+
+/* End 颱風百問 */
+
+.city-weeek {
+    position: relative;
+
+    .panel {
+        margin-right: 10px;
+    }
+
+    .panel-body {
+        padding: 0;
+
+        &>ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            .flexbox;
+            .flex(row, nowrap);
+            width: 100%;
+            border-bottom: 1px solid #fff;
+
+            &.hoilday .date {
+                background-color: @base-sea;
+            }
+
+            &>li {
+                width: 100%;
+                .flexbox;
+                .flex(column, wrap);
+                .justify-content(center, center);
+                .align-item(center, center);
+
+                &>span {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                &.date {
+                    background-color: @base-lt-blue;
+                    color: #fff;
+
+                    span {
+                        font-size: @sm-font-size - .2;
+                        letter-spacing: 2px;
+                    }
+                }
+
+                &.Day,
+                &.Night {
+                    padding: 6px;
+
+                    span {
+                        padding: 2px 0;
+                    }
+
+                    img {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+
+                &.Night {
+                    background-color: #f2f2f2;
+                }
+            }
+        }
+    }
+
+    .panel-title {
+        padding: 0;
+
+        a {
+            .border-radius(2px);
+            width: 100%;
+            display: block;
+            background-color: @base-ltr-blue;
+            font-size: @sm-font-size;
+            letter-spacing: 2px;
+            padding: 12px 27px;
+            color: @base-blue;
+            border-bottom: 2px solid @base-lt-blue;
+        }
+    }
+
+    .panel,
+    .panel-heading+.panel-collapse>.list-group,
+    .panel-heading+.panel-collapse>.panel-body {
+        .shadow(none);
+        border: none;
+        background: none;
+    }
+
+    .panel-default>.panel-heading {
+        padding: 0;
+        border: none;
+        z-index: 0;
+
+        &>.panel-title .collapsed {
+            position: relative;
+
+            &:after {
+                .fa-icon( "\f067", @icon);
+            }
+        }
+
+        &>.panel-title a {
+            position: relative;
+
+            &:after {
+                .fa-icon( "\f068", @icon);
+                .flexbox;
+                .align-item(center, center);
+                .justify-content(center, center);
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                text-align: center;
+                top: 50%;
+                right: -14px;
+                .transform-display(translateY(-50%));
+                .border-radius(50%);
+                background-color: @base-lt-blue;
+                color: #fff;
+                z-index: 2;
+                font-size: .8rem;
+            }
+        }
+    }
+
+    .panel+.panel {
+        margin-top: 10px;
+    }
+}
+
+
+
+/* 遠洋漁業 */
+
+.lt-blue-aco {
+    .panel-heading {
+        background: @base-sea;
+
+        h4 {
+            text-align: center;
+
+            a {
+                padding: 10px;
+                display: block;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .panel-body {
+        padding: 0;
+
+        .tab-default {
+            margin: 0;
+        }
+    }
+}
+
+
+
+/* 導覽 */
+
+.sitemap-row {
+    margin-bottom: 15px;
+}
+
+.sitemap-row h3 {
+    color: #fff;
+    background-color: @base-lt-blue;
+    padding: 25px;
+    margin: 0 2px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.sitemep-group {
+    margin: 0 2px;
+    padding: 3px 0;
+}
+
+.panel-site {
+    border-color: @base-sea;
+    margin-top: 3px;
+    padding: 0;
+}
+
+.panel-heading-site {
+    padding: 14px;
+}
+
+.panel-body-site {
+    border-top-color: @base-sea;
+    background-color: @base-ltr-blue;
+}
+
+.panel-body-site ul {
+    padding: 25px 0 15px 50px;
+}
+
+.panel-body-site li {
+    color: @base-yellow;
+}
+
+.panel-body-site li span {
+    color: #000;
+}
+
+.sitemap-row .col-md-3 {
+    margin: 0 -2% 0 0;
+}

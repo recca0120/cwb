@@ -1,0 +1,259 @@
+.nav_arrow_three-hr {
+    .flexbox;
+    .flex(row,nowrap);
+    position: absolute;
+    right: 15px;
+    top: 25px;
+
+    a {
+        display: block;
+        padding: 5px 15px;
+        color: @base-lt-blue;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: none;
+            color: @base-blue;
+        }
+
+        &.go-left {
+            &:before {
+                padding-right: 10px;
+                .fa-icon(  "\f104",@icon);
+            }
+            opacity: 0;
+            pointer-events: none;
+
+            &.show {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+
+        &.go-right {
+            &:after {
+                padding-left: 10px;
+                .fa-icon(  "\f105",@icon);
+            }
+        }
+    }
+}
+
+// #heading_g,
+// #heading_h,
+// #heading_i,
+// #heading_j,
+// #heading_k,
+// #heading_l,
+// #heading_m,
+// #heading_n,
+// #heading_o,
+// #heading_p,
+// #heading_q {
+//     opacity: 0;
+//     height: 0;
+//     overflow: hidden;
+
+//     &.is_open {
+//         opacity: 1;
+//         height: 100%;
+//         overflow: auto;
+//     }
+// }
+
+.threehr {
+    .date {
+        padding: 10px 20px;
+        background: @base-lt-blue;
+        color: #fff;
+        margin: 0;
+    }
+
+    .panel {
+        border: none;
+    }
+
+    .panel-default {
+        border-color: transparent;
+    }
+
+    .panel-group .panel+.panel {
+        margin-top: 0;
+    }
+
+    .panel {
+        .shadow(none);
+    }
+
+    .panel-heading {
+        padding: 0;
+        background: #fff;
+        color: @base-blue;
+
+        .panel-title {
+            a {
+                padding: 10px 0;
+                border-bottom: 1px solid #f2f2f2;
+                .flexbox;
+                .flex(row,nowrap);
+                .align-item(center, center);
+                position: relative;
+
+                &.collapsed {
+                    .open i:after {
+                        .fa-icon(  "\f055",@icon);
+                    }
+                }
+
+                .open,
+                .rain,
+                .time,
+                .weather {
+                    width: 100%;
+                    .flexbox;
+                    .flex(row,nowrap);
+                    .justify-content(center, center);
+                    .align-item(center, center);
+                    padding: 5px 10px;
+
+                    span {
+                        text-align: center;
+                        padding-left: 5px;
+                        font-size: @xs-font-size;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .time {
+                    span {
+                        color: @base-blue;
+                    }
+                }
+
+                .weather,
+                .rain {
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+
+                .rain {
+                    i {
+                        color: @base-blue;
+                        font-size: @md-font-size;
+                    }
+                }
+
+                .open {
+                    position: relative;
+
+                    i {
+                        font-style: normal;
+
+                        &:after {
+                            .fa-icon(  "\f056",@icon);
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            color: @base-lt-blue;
+                            font-size: @sm-font-size;
+                            .transform-display(translateX(-50%) translateY(-50%));
+                        }
+                    }
+                }
+
+                &:hover {
+                    text-decoration: none;
+                    color: inherit;
+                    background: #f2f2f2;
+                }
+            }
+        }
+    }
+
+    .panel-body {
+        .flexbox;
+        .flex(row,wrap);
+        padding: 0;
+        margin-bottom: 0;
+
+        ul {
+            background: #f2f2f2;
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+            list-style: none;
+            .flexbox;
+            .flex(row,nowrap);
+            border-bottom: 1px dotted #fff;
+
+            li {
+                .flexbox;
+                .flex(row,nowrap);
+                .justify-content(space-around,distribute);
+                .align-item(center,center);
+                padding: 5px;
+                width: 100%;
+
+                &:nth-child(2) {
+                    border-left: 1px dotted #fff;
+                }
+
+                i {
+                    font-size: @sm-font-size + .4;
+                    color: @base-dk-blue;
+
+                    // &.icon-somatosensory {
+                    //     color: @base-blue;
+                    // }
+
+                    // &.icon-cwb-wind {
+                    //     color: @base-dk-blue;
+                    // }
+
+                    // &.icon-humidity {
+                    //     color: @base-lt-blue;
+                    // }
+
+                    // &.icon-obs_detail_direction {
+                    //     color: @base-blue;
+                    // }
+                }
+
+                &>span {
+                    display: block;
+                    text-align: center;
+                    width: 100%;
+                    color: #555;
+                    font-size: @xs-font-size;
+                    .wind_1 {
+
+                        &.is-active {
+                            opacity: 1;
+                            display: inline-block;
+                        }
+
+
+                    }
+
+                    .wind_2 {
+
+                        &.is-active {
+                            opacity: 1;
+                            display: inline-block;
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+
+    .panel-group .panel-heading+.panel-collapse > .list-group,
+    .panel-group .panel-heading+.panel-collapse > .panel-body {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+}

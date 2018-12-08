@@ -1,0 +1,149 @@
+.calen {
+    padding: 40px;
+
+    .carousel-indicators {
+        bottom: inherit;
+        top: 0;
+        margin: 0;
+        left: 50%;
+        width: 94%;
+        height: 110px;
+        .transform-display(translateX(-50%));
+        overflow: hidden;
+        white-space: nowrap;
+
+        li {
+            border: 2px solid transparent;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 5px 10px;
+            .border-radius(2px);
+            text-indent: inherit;
+            position: relative;
+            // .transform-display(translateY(42px));
+            &::after,
+            &::before{
+              content: "";
+              position: absolute;
+              left: 50%;
+              bottom: -50px;
+              .transform-display(translateX(-50%));
+            }
+            &::after {
+                height: 0;
+                width: 2px;
+                .transition-animate(all .3s ease-in-out);
+            }
+
+            &::before {
+                border: 2px solid lighten(@base-yellow,20%);
+                background: #fff;
+                .border-radius(50%);
+                width: 13px;
+                height: 13px;
+                z-index: 1;
+            }
+
+            &.active {
+                background-color: transparent;
+                border-color: @base-yellow;
+                &::after,
+                &::before{
+                  background: @base-yellow;
+                  // bottom: -50px;
+                }
+                &::before{
+                  border-color: @base-yellow;
+                }
+                &::after{
+                  height: 50px;
+                }
+            }
+        }
+
+        &::after {
+            content: "";
+            background: lighten(@base-yellow,20%);
+            height: 2px;
+            width: 1280px;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            z-index: -1;
+        }
+    }
+
+    .carousel-inner {
+        .item {
+            margin-top: 130px;
+        }
+    }
+
+    .carousel-control {
+        width: 30px;
+        height: 30px;
+        .border-radius(50%);
+        background: #fff;
+        border: 2px solid @base-gray;
+        color: @base-gray;
+        text-shadow: none;
+        .transition-animate(all .3s ease-in-out);
+        opacity: 1;
+        font-size: @md-font-size;
+        top: 62px;
+        z-index: 999;
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            .transform-display(translateY(-50%) translateX(-50%));
+        }
+
+        &:hover {
+            color: @base-yellow;
+            border-color: @base-yellow;
+        }
+    }
+}
+.move{
+  .transform-display(translateX(-50%));
+}
+.defaule-carousel{
+  .carousel-inner{
+    width: 80%;
+    margin: 0 auto;
+    img{
+      width: 100%;
+    }
+  }
+  .carousel-control{
+    opacity: 1;
+    // position: relative;
+    .border-radius(100%);
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 2px solid @base-blue;
+    top: 50%;
+    .transform-display(translateY(-50%));
+    span{
+      color: @base-blue;
+      text-shadow: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      .transform-display(translateX(-50%) translateY(-50%));
+    }
+    &:hover{
+      background: @base-lt-gray;
+    }
+  }
+  .carousel-caption{
+    position: static;
+    text-shadow: none;
+    width: 80%;
+    margin: 0 auto;
+  }
+}

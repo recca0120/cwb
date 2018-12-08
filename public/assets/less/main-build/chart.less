@@ -1,0 +1,77 @@
+.highcharts-root {
+	.highcharts-label text {
+		font-size: 1.4rem;
+	}
+}
+
+.show-chart {
+	display: block!important;
+}
+
+.chart-responsive {
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 8px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #fff;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: @base-lt-blue;
+		padding: 10px;
+		.border-radius(10px);
+	}
+
+	div {
+		width: 768px;
+	}
+}
+
+.fishery_inshore {
+	.note_icon ul {
+		.flexbox;
+		margin: 10px 0 0;
+		.justify-content(flex-end,flex-end);
+	}
+	&.tidal-chart-wrap{
+		.chart_top{
+			margin: 0;
+			.xAxis{
+				order: 3;
+				.flex(row,nowrap);
+				max-height: 450px;
+				width: 100%;
+				li{
+					width: 100%;
+					.flex-basis(0,1,auto);
+					span:last-child{
+						background: @base-gray;
+						color: #555;
+						min-height: 1.8em;
+						margin-top: 5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.chart-box {
+	.chart-title {
+		background: #fff;
+		padding: 10px 10px 30px;
+		h2{
+			font-size: @sm-font-size - .2;
+			text-align: center;
+		}
+		p {
+			margin: 0;
+			color: #666;
+			text-align: center;
+			font-size: @xs-font-size - .2;
+			letter-spacing: 1px;
+		}
+	}
+}

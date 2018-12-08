@@ -1,0 +1,181 @@
+#theme-3 {
+  width: 600px;
+  margin: 0 auto;
+border: 1px solid @base-lt-blue;
+  svg {
+    path {
+      // fill: #f4f4f4;
+      fill: #BCE2E8;
+      stroke: #FFFFFF;
+      stroke-width: 3px;
+      stroke-miterlimit: 10;
+    }
+    & > g.active path {
+      // fill: @base-lt-blue;
+      fill: #f4f4f4;
+    }
+    .taiwan-map {
+      // fill: #BCE2E8;
+      fill: @base-lt-blue;
+      stroke: #FFFFFF;
+      stroke-width: 1.2px;
+      stroke-miterlimit: 10;
+    }
+  }
+
+  .sea-surface {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    a {
+      padding: 4px 25px;
+      position: absolute;
+      z-index: 1;
+      .border-radius(30px 0 0 30px);
+      overflow: hidden;
+
+      // &:before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   width: 0;
+      //   height: 100%;
+      //   background: #fbf9be;
+      //   .border-radius(0 30px 30px 0);
+      //   .transition-animate(all .3s ease-in-out);
+      //   z-index: -1;
+      // }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#ffffff', endColorstr='#00ffffff',GradientType=1 );
+        .border-radius(30px 0 0 30px);
+        z-index: -1;
+      }
+
+      &:hover {
+        &:after {
+          background: -moz-linear-gradient(right, rgba(255,255,255,1) 0%, rgba(255,255,255, .5) 100%);
+          background: -webkit-linear-gradient(right, rgba(255,255,255,1) 0%,rgba(255,255,255, .5) 100%);
+          background: linear-gradient(to left, rgba(255,255,255,1) 0%,rgba(255,255,255, .5) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#ffffff', endColorstr='#00ffffff',GradientType=1 );
+          .border-radius(0 30px 30px 0);
+        }
+      }
+
+      span {
+        color: #555;
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: @xs-font-size - .2;
+      }
+      // 東沙島海面
+      &[name="fisherymap01"] {
+        top: 88%;
+        left: 2%;
+      }
+      // 臺灣東南部海面
+      &[name="fisherymap02"] {
+        top: 89%;
+        left: 69%;
+      }
+      // 金門海面
+      &[name="fisherymap03"] {
+        top: 28%;
+        left: 0;
+      }
+      // 馬祖海面
+      &[name="fisherymap04"] {
+        top: 13%;
+        left: 0;
+      }
+      // 澎湖海面
+      &[name="fisherymap05"] {
+        top: 44%;
+        left: 0;
+      }
+      // 成功臺東沿海
+      &[name="fisherymap06"] {
+        top: 55%;
+        left: 52%;
+      }
+      // 臺東大武沿海
+      &[name="fisherymap07"] {
+        top: 70%;
+        left: 46%;
+      }
+      // 綠島蘭嶼海面
+      &[name="fisherymap08"] {
+        top: 76%;
+        left: 70%;
+      }
+      // 花蓮沿海
+      &[name="fisherymap09"] {
+        top: 41%;
+        left: 70%;
+      }
+      // 安平高雄沿海
+      &[name="fisherymap10"] {
+        top: 66%;
+        left: 0;
+      }
+      // 高雄枋寮沿海
+      &[name="fisherymap11"] {
+        top: 76%;
+        left: 3%;
+      }
+      // 枋寮恆春沿海
+      &[name="fisherymap12"] {
+        top: 79%;
+        left: 32%;
+      }
+      // 鵝鑾鼻沿海
+      &[name="fisherymap13"] {
+        top: 88%;
+        left: 18%;
+      }
+      // 新竹鹿港沿海
+      &[name="fisherymap14"] {
+        top: 4%;
+        left: 36%;
+      }
+      // 釣魚臺海面
+      &[name="fisherymap15"] {
+        top: 1%;
+        left: 73%;
+      }
+      // 彭佳嶼基隆海面
+       &[name="fisherymap16"] {
+        top:11%;
+        left: 65%;
+      }
+      // 鹿港東石沿海
+      &[name="fisherymap17"] {
+        top: 42%;
+        left: 23%;
+      }
+      // 東石安平沿海
+      &[name="fisherymap18"] {
+        top: 56%;
+        left: 22%;
+      }
+      // 宜蘭蘇澳沿海
+      &[name="fisherymap19"] {
+        top: 23%;
+        left: 70%;
+      }
+    }
+  }
+}

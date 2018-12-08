@@ -1,0 +1,532 @@
+.fc {
+    .flexbox;
+    .flex(row, wrap);
+    td,
+    th {
+        border-width: 2px;
+    } // --------- 頁籤設計
+    .nav-tabs {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        border-bottom: none;
+        .flex(row, nowrap);
+        border: 2px solid #0b3b82;
+        &>li.active>a,
+        &>li.active>a:focus,
+        &>li.active>a:hover {
+            background: rgba(6, 50, 102, 1);
+            color: #fff;
+            border: none; // &:after {
+            //   content: "";
+            //   height: 0;
+            //   border-style: solid;
+            //   border-width: 25px 20px 0 20px;
+            //   border-color: rgba(6,50,102,1) transparent transparent transparent;
+            //   position: absolute;
+            //   left: 50%;
+            //   .transform-display(translateX(-50%));
+            //   bottom: -20px;
+            // }
+        }
+        li {
+            width: 100%;
+            margin: 0;
+            &:nth-child(1) {
+                a:before {
+                    content: "";
+                    background: url("../../assets/img/icons/astronomy_profile.svg") no-repeat;
+                    display: block;
+                }
+            }
+            &:nth-child(2) {
+                a:before {
+                    content: "";
+                    background: url("../../assets/img/icons/astronomy_calendar.svg") no-repeat;
+                    display: block;
+                }
+            }
+            &:nth-child(3) {
+                a:before {
+                    content: "";
+                    background: url("../../assets/img/icons/astronomy_planet.svg") no-repeat;
+                    display: block;
+                }
+            }
+            &:nth-child(4) {
+                a:before {
+                    content: "";
+                    background: url("../../assets/img/icons/astronomy_calendar2.svg") no-repeat;
+                    display: block;
+                }
+            }
+            a {
+                background: rgba(6, 50, 102, .4);
+                color: rgba(255, 255, 255, .7);
+                margin: 0;
+                border: none;
+                display: block;
+                text-align: left;
+                letter-spacing: 2px;
+                position: relative;
+                z-index: 0;
+                padding: 18px 6px 18px 60px;
+                &:before {
+                    width: 30px;
+                    height: 30px;
+                    margin: 0;
+                    position: absolute;
+                    left: 15px;
+                    top: 50%;
+                    .transform-display(translateY(-50%));
+                } // &:after {
+                //   content: "";
+                //   height: 0;
+                //   border-style: solid;
+                //   border-width: 25px 20px 0 20px;
+                //   border-color: rgba(6,50,102,0) transparent transparent transparent;
+                //   position: absolute;
+                //   left: 50%;
+                //   .transform-display(translateX(-50%));
+                //   bottom: 0;
+                //   .transition-animate(all .3s ease-in-out);
+                //   z-index: 0;
+                // }
+                &:hover {
+                    background: rgba(6, 50, 102, 1);
+                    color: #fff;
+                    margin: 0;
+                    border: none;
+                    &:after {
+                        bottom: -20px;
+                    }
+                }
+            }
+        }
+    } // --------- 頁籤設計
+    .fc-header-toolbar {
+        border: 2px solid #0b3b82;
+        width: 35%;
+        background: #0b3b82;
+        position: relative;
+        z-index: 0;
+        .satellite {
+            display: block;
+            background: url("../../assets/img/icons/satellite.svg") no-repeat;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            .transform-display(rotate(0deg) scale(1));
+            .animation(satellite 6s infinite);
+            @keyframes satellite {
+                0% {
+                    .transform-display(rotate(0deg) scale(1));
+                    top: 20px;
+                    right: 20px;
+                }
+                50% {
+                    .transform-display(rotate(-10deg) scale(1.2));
+                    top: 30px;
+                    right: 30px;
+                }
+                100% {
+                    .transform-display(rotate(0deg) scale(1));
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+        }
+        &.fc-toolbar {
+            margin-bottom: 0;
+            .fc-center h2 {
+                font-size: @md-font-size;
+            }
+        }
+        .astronomy_sky {
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 0;
+            width: 100%;
+            height: 200px;
+            &:before {
+                content: "";
+                background: url("../../assets/img/icons/astronomy_sky.svg") no-repeat;
+                display: block;
+                width: 480px;
+                height: 200px;
+                position: absolute;
+                top: 0;
+                left: -50px;
+                z-index: -1;
+                .animation(sky_1 10s infinite);
+                @keyframes sky_1 {
+                    0% {
+                        left: -50px;
+                    }
+                    50% {
+                        left: -20px;
+                    }
+                    100% {
+                        left: -50px;
+                    }
+                }
+            }
+            &:after {
+                content: "";
+                background: url("../../assets/img/icons/astronomy_sky_2.svg") no-repeat;
+                display: block;
+                width: 480px;
+                height: 200px;
+                position: absolute;
+                top: -50px;
+                right: -50px;
+                z-index: -1;
+                .animation(sky_2 10s infinite);
+                @keyframes sky_2 {
+                    0% {
+                        right: -50px;
+                    }
+                    50% {
+                        right: -20px;
+                    }
+                    100% {
+                        right: -50px;
+                    }
+                }
+            }
+        }
+    }
+    .fc-left .fc-today-button {
+        height: 80px;
+        width: 80px;
+        padding: 15px;
+        border: 2px solid #fff;
+        background: transparent;
+        margin: 10px;
+        .border-radius(100%);
+        color: #fff;
+        &:before {
+            content: "今日";
+            display: block;
+        }
+        &:hover {
+            background: #fff;
+            color: @base-blue;
+        }
+    }
+    .fc-view-container {
+        width: 65%;
+        border: 2px solid #0b3b82;
+        border-left: none;
+        padding: 10px;
+        td.fc-today {
+            background: #f2f2f2;
+            .fc-day-number {
+                color: @base-red;
+            }
+        } // --------- 新增事件
+        .fc-day[data-date='2017-05-21'],
+        .fc-day[data-date='2017-05-28'] {
+            background: @base-lt-sea;
+        }
+        .fc-day-top[data-date='2017-05-21'] .fc-day-number,
+        .fc-day-top[data-date='2017-05-28'] .fc-day-number {
+            color: #fff;
+        } // --------- end 新增事件
+        .fc-event-container {
+            position: relative;
+            .on_event {
+                background: transparent;
+                border: none;
+            }
+        }
+    } // --------- 按鈕樣式
+    .fc-state-default {
+        background: none;
+        text-shadow: none;
+        .shadow(none);
+        background: rgba(255, 255, 255, .7);
+        .border-radius(0);
+        border: none;
+        .fc-icon {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+    }
+    .fc-state-active,
+    .fc-state-down {
+        .shadow(none);
+        background: #000;
+        color: #fff;
+    }
+    .fc-toolbar .fc-center {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        .transform-display(translateX(-50%) translateY(-50%));
+        h2 {
+            color: #fff;
+        }
+    }
+    .fc-button-group {
+        .fc-corner-left,
+        .fc-corner-right {
+            position: absolute;
+            top: 40%;
+            .transform-display(translateY(-50%));
+            height: 45px;
+        }
+        .fc-corner-left {
+            left: 10px;
+        }
+        .fc-corner-right {
+            right: 10px;
+        }
+    }
+    .fc-basic-view {
+        .fc-day-number {
+            padding: 5px 12px;
+            font-size: @sm-font-size;
+            color: @base-blue;
+            letter-spacing: 1px;
+        }
+        .fc-body {
+            .fc-row{
+                min-height: 3em;
+            }
+        }
+    }
+    .fc-day {
+        background: #f2f2f2;
+        &.fc-other-month {
+            background: #ddd;
+        }
+    }
+    .fc-day-header {
+        span {
+            color: @base-blue;
+            letter-spacing: 1px;
+            &:before {
+                font-size: @sm-font-size;
+            }
+        }
+        &.fc-sun span:before {
+            content: "日";
+            display: block;
+        }
+        &.fc-mon span:before {
+            content: "一";
+            display: block;
+        }
+        &.fc-tue span:before {
+            content: "二";
+            display: block;
+        }
+        &.fc-wed span:before {
+            content: "三";
+            display: block;
+        }
+        &.fc-thu span:before {
+            content: "四";
+            display: block;
+        }
+        &.fc-fri span:before {
+            content: "五";
+            display: block;
+        }
+        &.fc-sat span:before {
+            content: "六";
+            display: block;
+        }
+    }
+}
+
+#calendar+.tab-content {
+    margin-top: 30px;
+    border: 5px solid @base-lt-blue;
+    padding: 15px;
+    .ca-title {
+        color: @base-blue;
+        font-size: @sm-font-size - .2;
+        margin-bottom: 20px;
+    }
+    .sky-form {
+        margin-bottom: 0;
+    }
+    .text_wrap {
+        padding: 10px 0;
+        &+.text_wrap {
+            border-top: 1px solid #ddd;
+        }
+        .as-title {
+            font-size: @md-font-size - .2;
+            color: @base-blue;
+            letter-spacing: 1px;
+            margin: 15px 0;
+            line-height: 1.5;
+            i {
+                color: @base-yellow;
+            }
+            .date {
+                float: right;
+                color: #555;
+            }
+        }
+        .icon_list_note {
+            .flex(row,wrap);
+            .flexbox;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            .justify-content(flex-end,end);
+            .align-item(baseline,
+            baseline);
+            li {
+                padding: 0 5px;
+                i,
+                span {
+                    // color: @base-lt-blue;
+                    font-size: @md-font-size;
+                }
+            }
+            +span {
+                color: @base-red;
+                text-align: right;
+                display: block;
+            }
+        }
+    }
+    .icon_wrap_note {
+        background: #f2f2f2;
+        padding: 10px;
+        margin-bottom: 20px;
+        ul {
+            .flex(row,wrap);
+            .flexbox;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                width: 25%;
+                .flex(row,
+                nowrap);
+                .flexbox;
+                .align-item(center,
+                center);
+                padding: 10px 0;
+                &>i,
+                span[class*="icon-"],
+                span[class^="icon-"] {
+                    width: 15%;
+                    font-size: @md-font-size;
+                    &>span {
+                        font-size: @md-font-size;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.icon_wrap_note,
+.icon_list_note {
+    .icon-as_cam,
+    .icon-as_eye,
+    .icon-as_instrument,
+    .icon-as_telescope {
+        color: @base-lt-blue;
+    }
+    .icon-as_ban {
+        color: @base-red;
+    }
+    .icon-as_ban-cam {
+        .path1:before,
+        .path2:before {
+            color: @base-lt-blue;
+        }
+        .path3:before {
+            color: @base-red;
+        }
+    }
+    .icon-as_ban-eye {
+        .path2:before,
+        .path3:before {
+            color: @base-lt-blue;
+        }
+        .path1:before {
+            color: @base-red;
+        }
+    }
+    .icon-as_ban-instrument {
+        .path1:before {
+            color: @base-red;
+        }
+        .path2:before {
+            color: @base-lt-blue;
+        }
+    }
+}
+
+@media (min-width:992px) {
+    .fc .nav-tabs li a {
+        font-size: @xs-font-size - .1;
+    }
+}
+
+@media (max-width:992px) {
+    #calendar+.tab-content .icon_wrap_note ul li {
+        width: calc(100% / 3);
+    }
+    .fc {
+        .flexbox;
+        .flex(row,
+        wrap);
+        &>div {
+            width: 100% !important;
+        }
+        .fc-header-toolbar {
+            height: 350px;
+            order: 1;
+        }
+        .fc-view-container {
+            order: 2;
+            border: 2px solid #0b3b82;
+            &.is-hidden {
+                display: none;
+            }
+        }
+    }
+    .fc .nav-tabs li a {
+        padding: 10px 0;
+        padding-left: 60px;
+    }
+    .fc .fc-view-container {
+        padding: 20px 0 0;
+    }
+    .fc .nav-tabs {
+        bottom: -4px;
+    }
+}
+
+@media (max-width:640px) {
+    #calendar+.tab-content .icon_wrap_note ul li {
+        width: 50%;
+    }
+}
+
+@media (max-width:480px) {
+    #calendar+.tab-content .icon_wrap_note ul li {
+        width: 100%;
+    }
+    #calendar+.tab-content .text_wrap .as-title .date {
+        display: block;
+        font-size: @xs-font-size;
+        text-align: right;
+        float: none;
+    }
+}

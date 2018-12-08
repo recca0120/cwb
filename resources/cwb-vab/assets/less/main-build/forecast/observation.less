@@ -1,0 +1,168 @@
+.OB_wrap {
+  margin-bottom: 50px;
+
+  .panel-heading {
+    background-color: @base-lt-blue;
+    color: #fff;
+    text-align: center;
+    font-size: @xs-font-size;
+    letter-spacing: 1px;
+  }
+
+  .table_weather-info {
+    border: 1px solid #ddd;
+    border-top: none;
+    text-align: center;
+    font-size: @xs-font-size;
+    letter-spacing: 1px;
+
+    thead {
+      background-color: @base-sea;
+
+      th {
+        text-align: center;
+        color: #fff;
+      }
+    }
+
+    tbody {
+      background-color: #fff;
+
+      td {
+        padding: 12px 6px;
+      }
+    }
+  }
+
+  .main_block {
+    background: @base-ltr-blue;
+    padding: 20px;
+    .flexbox;
+    .flex(column,nowrap);
+    .align-item(center,center);
+    min-height: 210px;
+
+    object {
+      width: 100px;
+      height: 100px;
+    }
+
+    h6 {
+      color: @base-dk-red;
+    }
+
+    p {
+      color: #555;
+      letter-spacing: 1px;
+    }
+
+    h6,
+    p {
+      text-align: center;
+    }
+  }
+
+  .list-block {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: @base-ltr-blue;
+    padding: 20px;
+    .flexbox;
+    .flex(row,wrap);
+    min-height: 210px;
+    align-content: stretch;
+
+    li {
+      width: 25%;
+      .flexbox;
+      .flex(row,nowrap);
+      .align-item(center,center);
+
+      &:nth-child(1),
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        border-bottom: 1px solid #fff;
+      }
+
+      h6,
+      i {
+        color: @base-dk-blue;
+      }
+
+      h6,
+      i,
+      p {
+        -ms-flex: 0 1 auto;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+      }
+
+      p {
+        border-right: 2px dotted #fff;
+        color: #555;
+      }
+
+      i {
+        font-size: @md-font-size;
+      }
+    }
+
+    &.no-border {
+      min-height: inherit;
+
+      li {
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+          border: none;
+        }
+      }
+    }
+  }
+}
+@media (max-width:991px) {
+  .OB_wrap .main_block {
+    min-height: 170px;
+    padding: 0;
+  }
+}
+@media (max-width:768px) {
+  .OB_wrap .list-block li {
+    padding: 25px 0;
+    width: 50%;
+    border-bottom: 1px solid #fff!important;
+    border-right: none;
+
+    &:nth-child(even) p {
+      border-right: none;
+    }
+  }
+}
+@media (max-width:480px) {
+  .OB_wrap .list-block {
+    padding: 0 6px;
+
+    li {
+      .flex(row,nowrap);
+
+      &:nth-child(odd) {
+        border-right: 2px dotted #fff;
+        padding-right: 10px;
+      }
+
+      p {
+        border-right: none;
+      }
+
+      h6,
+      i,
+      p {
+        padding: 5px 2px;
+      }
+    }
+  }
+}

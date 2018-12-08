@@ -1,0 +1,141 @@
+#theme-5 {
+  width: 600px;
+  margin: 0 auto;
+  border: 1px solid @base-lt-blue;
+
+  svg {
+    width: 100%;
+.active path{
+  // fill:@base-blue;
+  fill: #f2f2f2;
+}
+    path {
+      // fill: #f2f2f2;
+      fill: #BCE2E8;
+      stroke: #FFFFFF;
+      stroke-width: 4px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+
+    #land path {
+      // fill: #BCE2E8;
+      fill: @base-lt-blue;
+    }
+  }
+
+  .ocean-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    list-style: none;
+
+    li {
+      position: absolute;
+      //廣東海面
+      &[itemprop="fsea-01"] {
+        top: 72%;
+        left: 6%;
+      }
+      //台灣海峽南部
+      &[itemprop="fsea-02"] {
+        top: 68%;
+        left: 28%;
+      }
+      //東沙島海面
+      &[itemprop="fsea-03"] {
+        top: 75%;
+        left: 25%;
+      }
+      //中西沙島海面
+      &[itemprop="fsea-04"] {
+        top: 82%;
+        left: 6%;
+      }
+      //南沙島海面
+      &[itemprop="fsea-05"] {
+        top: 89%;
+        left: 6%;
+      }
+      //巴士海峽
+      &[itemprop="fsea-06"] {
+        top: 75%;
+        left: 51%;
+      }
+      //台灣東南部海面
+      &[itemprop="fsea-07"] {
+        top: 68%;
+        left: 62%;
+      }
+      //台灣海峽北部
+      &[itemprop="fsea-08"] {
+        top: 60%;
+        left: 28%;
+      }
+      //台灣東北部海面
+      &[itemprop="fsea-09"] {
+        top: 60%;
+        left: 62%;
+      }
+      //台灣北部海面
+      &[itemprop="fsea-10"] {
+        top: 54%;
+        left: 39%;
+      }
+      //浙江海面
+      &[itemprop="fsea-11"] {
+        top: 45%;
+        left: 47%;
+      }
+      //東海南部海面
+      &[itemprop="fsea-12"] {
+        top: 45%;
+        left: 73%;
+      }
+      //花鳥山海面
+      &[itemprop="fsea-13"] {
+        top: 29%;
+        left: 47%;
+      }
+      //東海北部海面
+      &[itemprop="fsea-14"] {
+        top: 29%;
+        left: 73%;
+      }
+      //黃海南部海面
+      &[itemprop="fsea-15"] {
+        top: 14%;
+        left: 41%;
+      }
+
+      a {
+        display: block;
+        position: relative;
+        z-index: 0;
+        padding: 5px 10px;
+font-size: @xs-font-size - .1;
+letter-spacing: 2px;
+color: #555;
+        &:after {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+          background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+          background: linear-gradient(to right, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#ffffff', endColorstr='#00ffffff',GradientType=1 );
+          .border-radius( 30px 0  0 30px );
+        }
+      }
+    }
+  }
+}

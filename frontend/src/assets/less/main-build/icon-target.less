@@ -1,0 +1,642 @@
+ol.uvi-description {
+    padding: 0;
+    list-style-type: none;
+    li {
+        width: 100%;
+        text-align: left;
+        padding: 0 5px;
+        letter-spacing: 1px;
+        i {
+            font-size: 1.8rem;
+        }
+        &:nth-child(1) i {
+            color: @base-green;
+        }
+        &:nth-child(2) i {
+            color: @base-yellow;
+        }
+        &:nth-child(3) i {
+            color: @base-orange;
+        }
+        &:nth-child(4) i {
+            color: @base-red;
+        }
+        &:nth-child(5) i {
+            color: @base-purple;
+        }
+        p {
+            display: inline-block;
+            width: 33%;
+            text-align: center;
+        }
+    }
+}
+
+.wind-pos {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    background: @base-gray;
+    .border-radius(100%);
+    font-style: normal; // padding: 10px;
+    color: #fff;
+    span {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: 0 !important;
+        color: #666;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        border-top: 14px solid @base-blue;
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        left: 50%;
+        top: -5px;
+        .transform-display(translateX(-50%));
+    } // 北
+    &.N {
+        .transform-display(rotate(0));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(0));
+        }
+    } // 北北東
+    &.NNE {
+        .transform-display(rotate(22.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-22.5deg));
+        }
+    } // 東北
+    &.NE {
+        .transform-display(rotate(45deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-45deg));
+        }
+    } // 東北東
+    &.ENE {
+        .transform-display(rotate(62.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-62.5deg));
+        }
+    } // 東
+    &.E {
+        .transform-display(rotate(90deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-90deg));
+        }
+    } // 東南東
+    &.ESE {
+        .transform-display(rotate(112.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-112.5deg));
+        }
+    } // 東南
+    &.SE {
+        .transform-display(rotate(135deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-135deg));
+        }
+    } // 南南東
+    &.SSE {
+        .transform-display(rotate(157.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-157.5deg));
+        }
+    } // 南
+    &.S {
+        .transform-display(rotate(180deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-180deg));
+        }
+    } // 南南西
+    &.SSW {
+        .transform-display(rotate(202.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-202.5deg));
+        }
+    } // 西南
+    &.SW {
+        .transform-display(rotate(225deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-225deg));
+        }
+    } // 西南西
+    &.WSW {
+        .transform-display(rotate(247.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-247.5deg));
+        }
+    } // 西
+    &.W {
+        .transform-display(rotate(270deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-270deg));
+        }
+    } // 西北西
+    &.WNW {
+        .transform-display(rotate(292.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-292.5deg));
+        }
+    } // 西北
+    &.NW {
+        .transform-display(rotate(315deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-315deg));
+        }
+    } // 北北西
+    &.NNW {
+        .transform-display(rotate(337.5deg));
+        span {
+            .transform-display(translateX(-50%) translateY(-50%) rotate(-337.5deg));
+        }
+    }
+}
+
+.wind-rose-icon() {
+    position: relative;
+    background: @base-gray;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    span {
+        font-size: @xs-font-size - .1;
+        color: #222;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        .transform-display(translate(-50%, -50%));
+    }
+    &+p {
+        color: #555;
+        padding-top: 30px;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        left: 50%;
+        bottom: 0;
+        border-bottom: 14px solid @base-blue;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        .transform-display(translate(-50%, 50%));
+    }
+    &.pos-W {
+        .transform-display(rotate(90deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-90deg));
+        }
+    }
+    &.pos-N {
+        .transform-display(rotate(180deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-180deg));
+        }
+    }
+    &.pos-E {
+        .transform-display(rotate(-90deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(90deg));
+        }
+    }
+    &.pos-SSW {
+        .transform-display(rotate(22.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-22.5deg));
+        }
+    }
+    &.pos-SW {
+        .transform-display(rotate(45deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-45deg));
+        }
+    }
+    &.pos-WSW {
+        .transform-display(rotate(67.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-67.5deg));
+        }
+    }
+    &.pos-WNW {
+        .transform-display(rotate(112.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-112.5deg));
+        }
+    }
+    &.pos-NW {
+        .transform-display(rotate(135deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-135deg));
+        }
+    }
+    &.pos-NNW {
+        .transform-display(rotate(157.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(-157.5deg));
+        }
+    }
+    &.pos-NNE {
+        .transform-display(rotate(-157.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(157.5deg));
+        }
+    }
+    &.pos-NE {
+        .transform-display(rotate(-135deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(135deg));
+        }
+    }
+    &.pos-ENE {
+        .transform-display(rotate(-112.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(112.5deg));
+        }
+    }
+    &.pos-ESE {
+        .transform-display(rotate(-67.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(67.5deg));
+        }
+    }
+    &.pos-SE {
+        .transform-display(rotate(-45deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(45deg));
+        }
+    }
+    &.pos-SSE {
+        .transform-display(rotate(-22.5deg));
+        span {
+            .transform-display(translate(-50%, -50%)rotate(22.5deg));
+        }
+    }
+}
+
+.icon-warn-middle {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: #fff6ac;
+}
+
+.icon-warn-hight {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: #ffc580;
+}
+
+.strbar {
+    width: 2px;
+    height: 1em;
+    background: @base-lt-blue;
+}
+
+.icon-cwb-height {
+    color: @base-dk-orange;
+    font-size: @md-font-size + .2;
+}
+
+.icon-cwb-low {
+    color: @base-lt-blue;
+    font-size: @md-font-size + .2;
+}
+
+/* 天文現象icon */
+
+.icon-as_ban-cam {
+    .path1,
+    .path2 {
+        &::before {
+            color: inherit;
+        }
+    }
+}
+
+.icon-as_ban-eye {
+    .path2,
+    .path3 {
+        &::before {
+            color: inherit;
+        }
+    }
+}
+
+.icon-as_ban-instrument {
+    .path2 {
+        &::before {
+            color: inherit;
+        }
+    }
+}
+
+/* End 天文現象icon */
+
+.e-card {
+    position: relative;
+    img {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.common-list {
+    padding: 0;
+    list-style-type: none;
+    .flexbox;
+    .flex(row, nowrap);
+    margin: 10px 0;
+    position: absolute;
+    top: -70px;
+    right: 0;
+    .transition-animate(all .3s ease-in-out);
+    opacity: 0;
+    li {
+        width: 56px;
+        height: 56px;
+        .border-radius(100%);
+        position: relative;
+        margin: 0 5px;
+        .shadow(1px 1px 3px #555);
+        &:nth-child(1) {
+            background: #1DA1F2;
+        }
+        &:nth-child(2) {
+            background: #46629E;
+        }
+        &:hover {
+            opacity: 0.8;
+        }
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            i {
+                color: #fff;
+                font-size: @md-font-size;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                .transform-display(translateX(-50%) translateY(-50%));
+            }
+        }
+    }
+    &.active {
+        opacity: 1;
+    }
+}
+
+/* 雨量表示 */
+
+.rain-level-1 {
+    color: @base-dker-gray !important;
+}
+
+.rain-level-2 {
+    color: @base-blue !important;
+}
+
+.rain-level-3 {
+    //color: @base-green!important;
+    color: #3a913a; //氣象局V7原始顏色
+}
+
+.rain-level-4 {
+    color: @base-yellow !important;
+}
+
+.rain-level-5 {
+    color: @base-red !important;
+}
+
+.rain-level-6 {
+    color: @base-purple !important;
+}
+
+// .rain-level{
+//   padding: 0;
+//   list-style: none;
+//   li{
+//     &:
+//   }
+// }
+/* End 雨量表示 */
+
+.gray-circle {
+    display: inline-block;
+    background: @base-dk-gray;
+    width: 34px;
+    height: 34px;
+    color: #fff;
+    font-size: @sm-font-size;
+    padding: 5px;
+    .border-radius(100%);
+    &:active,
+    &:focus,
+    &:hover {
+        color: #fff;
+        background: @base-gray;
+    }
+}
+
+// 空氣品質
+.airbar {
+    width: 100%;
+    .flexbox;
+    .align-item(center, center);
+    .airicon {
+        width: 15%;
+        color: white !important;
+        i {
+            font-size: @md-font-size + .8;
+        }
+    }
+    .bar {
+        border: 1px solid @base-gray;
+        width: 85%;
+        height: 20px;
+        margin-left: 10px;
+        background: #fff;
+        position: relative;
+    }
+    &#level-1,
+    &#level-2,
+    &#level-3,
+    &#level-4,
+    &#level-5,
+    &#level-6 {
+        // height: 100%;
+        // position: relative;
+        // display: inline-block;
+        .bar {
+            .level {
+                display: block;
+                height: 100%; // position: absolute;
+                // left: 0;
+                // top: 0;
+                position: relative;
+                width: 0;
+                span {
+                    position: absolute;
+                    bottom: 100%;
+                    font-style: normal;
+                    &:first-child {
+                        left: 0;
+                        opacity: 0;
+                    }
+                    &:nth-child(2) {
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+    &#level-1 {
+        .airicon {
+            color: #00e800;
+        }
+        .bar {
+            .level {
+                width: calc(100% / 10);
+                background: #00e800;
+                .animation(barin1 2s ease-in-out);
+            }
+        }
+    }
+    &#level-2 {
+        .airicon {
+            color: @base-lt-yellow;
+        }
+        .bar {
+            .level {
+                width: calc(100% / 10 * 2);
+                background: @base-lt-yellow;
+                .animation(barin2 2s ease-in-out);
+            }
+        }
+    }
+    &#level-3 {
+        .airicon {
+            color: @base-orange;
+        }
+        .bar {
+            .level {
+                width: calc(100% / 10 * 3);
+                background: @base-orange;
+                .animation(barin3 2s ease-in-out);
+            }
+        }
+    }
+    &#level-4 {
+        .airicon {
+            color: @base-red;
+        }
+        .bar {
+            .level {
+                width: calc(100% / 10 * 4);
+                background: @base-red;
+                .animation(barin4 2s ease-in-out);
+            }
+        }
+    }
+    &#level-5 {
+        .airicon {
+            color: @base-purple;
+        }
+        .bar {
+            .level {
+                width: calc(100% / 10 * 6);
+                background: @base-purple;
+                .animation(barin5 2s ease-in-out);
+            }
+        }
+    }
+    &#level-6 {
+        .airicon {
+            color: darken(@base-purple, 30%);
+        }
+        .bar {
+            .level {
+                width: 100%;
+                background: darken(@base-purple, 30%);
+                .animation(barin6 2s ease-in-out);
+            }
+        }
+    }
+}
+.lightning-sign{
+  padding: 0;
+  list-style-type: none;
+  .inline-flex;
+  li{
+    +li{
+      padding-left: 1rem;
+      position: relative;
+      &::before{
+        content: "/";
+        position: absolute;
+        left: .5rem;
+        .transform-display(translate(-50%));
+      }
+      i{
+        width: 1rem;
+      }
+    }
+  }
+}
+.lightning-bar {
+  margin-bottom: 3rem;
+  padding: 0;
+  list-style-type: none;
+  .flexbox;
+    li {
+        position: relative;
+        span{
+          position: absolute;
+          top: 100%;
+          right: 0;
+          .transform-display(translate(50%));
+        }
+        &:first-child{
+          &::before{
+            content: "0";
+            position: absolute;
+            top: 100%;
+            left: 0;
+          .transform-display(translate(-50%));
+          }
+        }
+    }
+    .bar- {
+        &red {
+            background: @base-red;
+            width: calc(100% / 60 * 5);
+            height: 20px;
+        }
+        &yellow {
+            background: @base-lt-yellow;
+            width: calc(100% / 60 * 5);
+            height: 20px;
+        }
+        &green {
+            background: @abse-dk-green;
+            width: calc(100% / 60 * 20);
+            height: 20px;
+        }
+        &blue {
+            background: @base-dk-blue;
+            width: calc(100% / 60 * 30);
+            height: 20px;
+        }
+    }
+}

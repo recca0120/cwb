@@ -1,0 +1,128 @@
+/* 氣象常識 */
+/* 主要物件樣式 */
+.know {
+    .cbp-singlePageInline-active {
+        opacity: 1!important;
+        .know-container{
+          background: lighten(@base-sea, 10%);
+          // background: @base-sea;
+          p{
+            color: #fff;
+          }
+          &::after{
+            content: "";
+            background: @base-sea;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: -50%;
+            top: 0;
+            pointer-events: none;
+            .transform-display(skew(-35deg));
+          }
+        }
+    }
+    .cbp-l-inline{
+      background-color: @base-ltr-blue;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom left;
+      min-height: 500px;
+    }
+    .cbp-l-inline-title{
+      font-size: @sm-font-size;
+      color: @base-dk-blue;
+    }
+    .cbp-l-inline-desc{
+      color: @base-dk-blue;
+      h3{
+        color: @base-dk-blue;
+      }
+      p,
+      li{
+        color: @base-dk-blue;
+        font-size: @xs-font-size;
+        line-height: 2em;
+      }
+    }
+
+    .cbp-popup-singlePageInline .cbp-popup-close{
+      background: transparent;
+      border: 3px solid @base-sea;
+      .border-radius(100%);
+      right: 0;
+      top: 10px;
+      width: 30px;
+      height: 30px;
+      &::before{
+        .fa-icon("\f00d",@icon);
+        font-size: @xs-font-size;
+        color: @base-sea;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        .transform-display(translateY(-50%) translateX(-50%));
+      }
+    }
+}
+.cbp-l-inline-right,
+.cbp-l-inline-left{
+  margin: 10px 30px;
+}
+/* Popup 背景圖 */
+.nous {background-image: url(../../assets/img/cwb/know/background/cloudy.png);}
+.inst {background-image: url(../../assets/img/cwb/know/background/tool.png);}
+.typhoon {background-image: url(../../assets/img/cwb/know/background/typhoon.png);}
+.ast {background-image: url(../../assets/img/cwb/know/background/rocket.png);}
+.sea {background-image: url(../../assets/img/cwb/know/background/boat.png);}
+.comm{background-image: url(../../assets/img/cwb/know/background/comm.png); }
+.earthquake{background-image: url(../../assets/img/cwb/know/background/encyclopedia.png); }
+/* End Popup 背景圖 */
+.know-container {
+    background: @base-lt-gray;
+    padding: 15px;
+    height: 160px;
+    .flexbox;
+    .align-item(center,center);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    .transition-animate(all .5s cubic-bezier(0.19, 1, 0.22, 1));
+
+    p {
+        color: @base-blue;
+        text-align: center;
+        margin-bottom: 0;
+        .transition-animate(all .3s ease-in-out);
+    }
+    &::after{
+      content: "";
+      background: @base-sea;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: -130%;
+      top: 0;
+      pointer-events: none;
+      .transform-display(skew(-35deg));
+      .transition-animate(all .5s cubic-bezier(0.19, 1, 0.22, 1));
+    }
+
+
+    &:hover {
+        background: lighten(@base-sea, 10%);
+
+        p {
+            color: #fff;
+        }
+
+        &::after {
+            left: -50%;
+        }
+    }
+}
+.cubmargin{
+  margin-bottom: 150px;
+}
+/* 主要物件樣式 */
+/* End 氣象常識 */

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh-Hant-TW" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="zh-Hant-TW" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh-Hant-TW">
+<!--<![endif]-->
+
+<head>
+    <title>語音答詢 | 交通部中央氣象局</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- =============== CSS Global Compulsory =============== -->
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/plugins/cwb-fonticon/style.css">
+    <!-- =============== CSS Customization =============== -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/main-map.css">
+</head>
+
+<body class="vab-bk">
+    <div class="wrapper">
+        <main class="main-content container text-center">
+            <h2 class="vab-litle">氣象局氣象語音答詢系統</h2>
+            <div class="vab-microphone">
+                <button><i class="fa fa-microphone" aria-hidden="true"></i></button>
+            </div>
+            <form action="">
+                <div class="input-group text-center say-password">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="" class="label vab-label">請說出通關密語</label></div>
+                        <div class="col-md-12">
+                            <div class="col-md-6 col-md-push-3">
+                                <input type="text" class="form-control vab-input" placeholder="您說的內容會顯示於此處" readonly="readonly"></div>
+                        </div>
+                        <!-- <div class="col-md-12">
+                            <div class="col-md-6 col-md-push-3">
+                                <input type="text" class="form-control vab-input input-success">
+                            </div>
+                            <div class="col-md-2 col-md-push-3">
+                                <button type="button" class="btn next-btn">
+                                    繼續
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span for="" class="vab-success">*通關密語正確，請點選繼續</span>
+                        </div> -->
+                        <!-- <div class="col-md-12">
+                            <div class="col-md-6 col-md-push-3">
+                                <input type="text" class="form-control vab-input input-failed">
+                            </div>
+                        </div> -->
+                        <div class="col-md-12">
+                            <span for="" class="vab-failed">*您的通關密語錯誤，請再試一次</span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+    <!--/wrapper-->
+    <!-- JS Global Compulsory -->
+    <script type="text/javascript" src="../assets/plugins/jquery/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Page Level -->
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            App.init();
+        });
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../assets/plugins/IE/respond.js"></script>
+    <script src="../assets/plugins/IE/html5shiv.js"></script>
+    <script src="../assets/plugins/IE/placeholder-IE-fixes.js"></script>
+    <![endif]-->
+</body>
+
+</html>

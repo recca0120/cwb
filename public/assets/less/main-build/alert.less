@@ -1,0 +1,47 @@
+.alert-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  .alert-inner {
+    background-color: rgba(255,255,255,.8);
+    .flexbox;
+    .align-item(center,center);
+    color: @base-blue;
+    padding: 25px 20px;
+    border-left: 4px solid @base-blue;
+    position: relative;
+
+    &:after {
+      content: "";
+      width: 0;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba(255,255,255,.3);
+      z-index: -1;
+      // .transition-animate(all 2s linear);
+      animation: is-alert 3s linear both;
+      @keyframes is-alert {
+        0% {
+          width: 0;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+    }
+
+    span {
+      font-size: @xs-font-size;
+    }
+
+    i {
+      font-size: @md-font-size + .4;
+      padding-right: 12px;
+    }
+  }
+}

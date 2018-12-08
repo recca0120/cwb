@@ -1,0 +1,135 @@
+#open_search {
+  display: block;
+  margin-bottom: 15px;
+
+  label {
+    pointer-events: none;
+  }
+}
+option{
+  &.b-point{
+    color: @base-dkr-blue;
+  }
+  &.y-point{
+    color: @base-yellow;
+  }
+  &.o-point{
+    color: @base-dk-orange;
+  }
+}
+@media (min-width:992px) {
+  #quick_search {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    top: 30vh;
+    .transform-display(translateY(0));
+    z-index: 999;
+
+    &.is_open {
+      .sky-form.vision_1 {
+        .transform-display(translateX(0));
+      }
+      z-index: 999;
+    }
+
+    .container {
+      width: auto;
+    }
+
+    .sky-form.vision_1,
+    .sky-form.vision_1 fieldset {
+      background: rgba(255,255,255,.9);
+    }
+
+    .sky-form.vision_1 {
+      position: relative;
+      .transition-animate(all .3s ease-in-out);
+      .transform-display(translateX(100%));
+      width: 334px;
+
+      .label {
+        text-align: left!important;
+        font-size: @xs-font-size;
+      }
+      border: none;
+      .border-radius(10px);
+
+      .quick_search_btn {
+        position: absolute;
+        top: 0;
+        background: @base-blue;
+        width: 60px;
+        height: 60px;
+        .transition-animate(all .3s ease-in-out);
+        left: -60px;
+        .border-radius(100% 0 0 100%);
+
+        &:focus,
+        &:hover {
+          background: @base-dk-blue;
+          border: none;
+        }
+
+        i {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          .transform-display(translateX(-50%) translateY(-50%));
+          color: #fff;
+          font-size: @sm-font-size;
+        }
+      }
+
+      fieldset {
+        padding: 15px;
+        border: 5px solid @base-blue;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+@media (max-width:992px) {
+  #open_search {
+    &:hover {
+      text-decoration: none;
+
+      label {
+        background: #f2f2f2;
+      }
+    }
+
+    label {
+      pointer-events: inherit;
+      cursor: pointer;
+      position: relative;
+      padding: 18px 10px;
+      border: 1px solid #ddd;
+
+      &:after {
+        .fa-icon(  "\f002",@icon);
+        position: absolute;
+        width: 20px;
+        right: 30px;
+        top: 50%;
+        .transform-display(translateY(-50%));
+      }
+    }
+  }
+
+  #mobile_search {
+    .transition-animate(all 0.2s ease-in-out);
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+
+    &.is_open {
+      height: auto;
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+  }
+}
