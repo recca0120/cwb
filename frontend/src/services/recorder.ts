@@ -1,15 +1,18 @@
 import RecorderJs from 'recorderjs';
 
+interface Window {
+    AudioContext: any;
+    webkitAudioContext: any;
+    URL: any;
+    webkitURL: any;
+}
+
+declare const window: Window;
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const URL = window.URL || window.webkitURL;
+
 export default class Recorder {
     private recorder?: RecorderJs;
-    private audioContent: AudioContext;
-    private URL: any;
-
-    public constructor() {
-        const AudioContent: any = (window as any).AudioContext || (window as any).webkitAudioContext;
-        this.audioContent = new AudioContent();
-        this.URL = (window as any).URL || (window as any).webkitURL;
-    }
 
     public async startRecording(): Promise<void> {
         const recorder: RecorderJs = await this.getRecorder();
@@ -37,7 +40,7 @@ export default class Recorder {
                 document.body.removeChild(audio);
             });
 
-            audio.src = this.URL.createObjectURL(blob);
+            audio.src = URL.createObjectURL(blob);
             audio.style.visibility = 'hidden';
             audio.style.position = 'absolute';
             audio.style.left = '-10000px';
@@ -52,7 +55,7 @@ export default class Recorder {
         }
 
         const stream: MediaStream = await navigator.mediaDevices.getUserMedia({audio: true, video: false});
-        this.recorder = new RecorderJs(this.audioContent.createMediaStreamSource(stream), {numChannels: 1});
+        this.recorder = new RecorderJs(new AudioContext().createMediaStreamSource(stream), {numChannels: 1});
 
         return this.recorder;
     }
