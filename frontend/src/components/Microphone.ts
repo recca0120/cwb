@@ -1,21 +1,22 @@
-import {Component, Inject, Vue} from 'vue-property-decorator';
-import Recorder from '../services/recorder';
-import Client from '../services/client';
-import {Speaker} from '../services/speaker';
+import {Component, Inject, Vue, Emit} from 'vue-property-decorator';
+import { Olami } from '@/Olami';
+import { Speaker } from '@/services/speaker';
+import Client from '@/services/client';
+import Recorder from '@/services/recorder';
 
 @Component({name: 'microphone'})
 export default class Microphone extends Vue {
     @Inject({default: new Client()}) private client!: Client;
     @Inject({default: new Recorder()}) private recorder!: Recorder;
-    @Inject({default: new Speaker()}) private speaker!: Speaker;
 
     public async startRecording(): Promise<void> {
         await this.recorder.startRecording();
     }
 
+    @Emit('toggle-loading')
     public async stopRecording(): Promise<void> {
         try {
-            this.$parent.$emit('showLoading', true);
+            this.toogleLoading(true);
 
             const blob: Blob = await this.recorder.stopRecording();
             const duration: number = await this.recorder.getDuration(blob);
@@ -24,17 +25,30 @@ export default class Microphone extends Vue {
                 return;
             }
 
-            const {asr, nli} = await this.client.query(blob);
-            this.$parent.$emit('olami', asr, nli);
-
-            if (this.$route.name === 'home') {
-                await this.speaker.say(nli);
-            }
+            this.receiveOlami(await this.client.query(blob));
         } catch (err) {
             // console.error(err);
         } finally {
-            setTimeout(() => this.$parent.$emit('showLoading', false), 200);
+            setTimeout(() => {
+                this.toogleLoading(false);
+            }, 200);
         }
+    }
+
+    @Emit('toggle-loading')
+    protected toogleLoading(showLoading: boolean) {
+        return new Promise((resolve) => {
+            if (showLoading === false) {
+                setTimeout(() => resolve(false), 500);
+            } else {
+                resolve(true);
+            }
+        });
+    }
+
+    @Emit()
+    protected receiveOlami(olami: Olami) {
+        return olami;
     }
 }
 

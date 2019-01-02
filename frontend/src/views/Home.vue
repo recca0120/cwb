@@ -11,9 +11,7 @@
                     </div>
                     <div class="col-md-1 col-md-push-3">
                         <div class="btn-group vab-prompt">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-question-circle-o" aria-hidden="true"></i>
                             </button>
                             <ul class="dropdown-menu prompt-menu">

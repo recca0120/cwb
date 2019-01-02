@@ -9,7 +9,7 @@
                     <div class="col-md-6 col-md-push-3">
                         <input type="text" class="form-control vab-input" placeholder="您說的內容會顯示於此處" readonly="readonly"
                                :class="{ 'input-success': status === 'success', 'input-failed': status === 'failed' }"
-                               v-model="asr"
+                               v-model="olami.asr"
                         >
                     </div>
                     <div class="col-md-2 col-md-push-3" v-if="status === 'success'">

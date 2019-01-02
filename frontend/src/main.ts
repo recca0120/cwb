@@ -1,9 +1,10 @@
 import Vue from 'vue';
+import './class-components-hooks';
+import './registerServiceWorker';
+import './bootstrap';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import './registerServiceWorker';
-import './bootstrap';
 
 Vue.config.productionTip = false;
 
