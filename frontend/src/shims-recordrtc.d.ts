@@ -4,9 +4,7 @@ declare module 'recordrtc' {
 
         startRecording(): void;
 
-        stopRecording(): Promise<void>
-
-        stopRecording(cb: Function | null | undefined): Promise<void>;
+        stopRecording(cb: Function | null | undefined): void;
 
         getBlob(): Blob;
     }
