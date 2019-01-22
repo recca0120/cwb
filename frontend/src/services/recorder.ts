@@ -9,7 +9,8 @@ declare const window: Window;
 const URL = window.URL || window.webkitURL;
 
 export default class Recorder {
-    private recorder?: RecordRTC;
+    private stream?: MediaStream | null;
+    private recorder?: RecordRTC | null;
 
     public async startRecording(): Promise<void> {
         const recorder: RecordRTC = await this.getRecorder();
@@ -22,6 +23,12 @@ export default class Recorder {
         return new Promise((resolve) => {
             recorder.stopRecording(() => {
                 resolve(recorder.getBlob());
+
+                this.recorder = null;
+                if (this.stream) {
+                    this.stream.stop();
+                    this.stream = null;
+                }
             });
         });
     }
@@ -44,14 +51,20 @@ export default class Recorder {
         });
     }
 
+    private async getMicrophone() {
+        if (this.stream) {
+            return this.stream;
+        }
+
+        return this.stream = await navigator.mediaDevices.getUserMedia({audio: true, video: false});
+    }
+
     private async getRecorder(): Promise<RecordRTC> {
         if (this.recorder) {
             return this.recorder;
         }
 
-        const stream: MediaStream = await navigator.mediaDevices.getUserMedia({audio: true, video: false});
-
-        this.recorder = new RecordRTC(stream, {
+        this.recorder = new RecordRTC(await this.getMicrophone(), {
             type: 'audio',
             recorderType: StereoAudioRecorder,
             desiredSampRate: 16000,
