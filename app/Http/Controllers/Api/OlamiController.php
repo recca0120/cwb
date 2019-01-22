@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Storage;
+use App\Services\AudioConverter;
 
 class OlamiController extends Controller
 {
@@ -40,16 +41,20 @@ class OlamiController extends Controller
      * @return mixed|\Psr\Http\Message\ResponseInterface
      * @throws \Http\Client\Exception
      */
-    public function query(\App\Services\AudioConverter $audioConverter, Request $request)
+    public function query(AudioConverter $audioConverter, Request $request)
     {
         $file = $request->file('sound');
 
-        $sound = $audioConverter->convert(
-            Storage::path($file->storePubliclyAs(
-                'sound',
-                Str::uuid().'.'.$file->getClientOriginalExtension()
-            ))
-        );
+        $sound = Storage::path($file->storePubliclyAs(
+            'sound', Str::uuid().'.'.$file->getClientOriginalExtension()
+        ));
+        
+        // $sound = $audioConverter->convert(
+        //     Storage::path($file->storePubliclyAs(
+        //         'sound',
+        //         Str::uuid().'.'.$file->getClientOriginalExtension()
+        //     ))
+        // );
 
         app()->terminating(function () use ($sound) {
             $this->files->delete($sound);

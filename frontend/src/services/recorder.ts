@@ -1,32 +1,27 @@
-import RecorderJs from 'recorderjs';
+import RecordRTC, { StereoAudioRecorder} from 'recordrtc';
 
 interface Window {
-    AudioContext: any;
-    webkitAudioContext: any;
     URL: any;
     webkitURL: any;
 }
 
 declare const window: Window;
-const AudioContext = window.AudioContext || window.webkitAudioContext;
 const URL = window.URL || window.webkitURL;
 
 export default class Recorder {
-    private recorder?: RecorderJs;
+    private recorder?: RecordRTC;
 
     public async startRecording(): Promise<void> {
-        const recorder: RecorderJs = await this.getRecorder();
-        recorder.record();
+        const recorder: RecordRTC = await this.getRecorder();
+        recorder.startRecording();
     }
 
-    public async stopRecording(): Promise<any> {
-        return new Promise(async (resolve) => {
-            const recorder: RecorderJs = await this.getRecorder();
-            recorder.stop();
+    public async stopRecording(): Promise<Blob> {
+        const recorder: RecordRTC = await this.getRecorder();
 
-            recorder.exportWAV((blob: Blob) => {
-                resolve(blob);
-                recorder.clear();
+        return new Promise((resolve) => {
+            recorder.stopRecording(() => {
+                resolve(recorder.getBlob());
             });
         });
     }
@@ -49,13 +44,20 @@ export default class Recorder {
         });
     }
 
-    private async getRecorder(): Promise<RecorderJs> {
+    private async getRecorder(): Promise<RecordRTC> {
         if (this.recorder) {
             return this.recorder;
         }
 
         const stream: MediaStream = await navigator.mediaDevices.getUserMedia({audio: true, video: false});
-        this.recorder = new RecorderJs(new AudioContext().createMediaStreamSource(stream), {numChannels: 1});
+
+        this.recorder = new RecordRTC(stream, {
+            type: 'audio',
+            recorderType: StereoAudioRecorder,
+            desiredSampRate: 16000,
+            numberOfAudioChannels: 1,
+            disableLogs: true,
+        });
 
         return this.recorder;
     }
