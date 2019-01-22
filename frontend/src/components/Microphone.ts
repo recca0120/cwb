@@ -1,6 +1,5 @@
 import {Component, Inject, Vue, Emit} from 'vue-property-decorator';
 import { Olami } from '@/Olami';
-import { Speaker } from '@/services/speaker';
 import Client from '@/services/client';
 import Recorder from '@/services/recorder';
 
