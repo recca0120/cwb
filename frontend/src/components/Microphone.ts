@@ -3,7 +3,7 @@ import { Olami } from '@/Olami';
 import Client from '@/services/client';
 import Recorder from '@/services/recorder';
 
-@Component({name: 'microphone'})
+@Component
 export default class Microphone extends Vue {
     @Inject({default: new Client()}) private client!: Client;
     @Inject({default: new Recorder()}) private recorder!: Recorder;

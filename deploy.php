@@ -24,7 +24,6 @@ add('shared_dirs', []);
 add('writable_dirs', []);
 
 set('http_user', 'www-data');
-set('writable_mode', 'chmod');
 
 // rsync
 set('keep_releases', 1);
