@@ -14,7 +14,7 @@
         "test:unit": "cd frontent;num run test:unit"
     },
     "devDependencies": {
-        "axios": "^0.18",
+        "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "browser-sync": "^2.26.3",
         "browser-sync-webpack-plugin": "^2.2.2",
